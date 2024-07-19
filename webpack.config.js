@@ -6,7 +6,7 @@ module.exports = {
     watch: true,
     entry: {
         signup: "./frontend/ts/signup.ts",
-        signin: "./frontend/ts/signin.ts",
+        login: "./frontend/ts/login.ts",
     },
     output: {
         path: path.resolve(__dirname, "./app/static/js/"),
