@@ -1,0 +1,23 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "target": "ES2016",
+        "checkJs": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "outDir": "./app/static/js/",
+        "baseUrl": "./frontend/ts/",
+    },
+    "exclude": [
+        "/node_modules",
+        "**/node_modules/*",
+        "./app/static/js/*",
+        "htmlcov/*",
+    ],
+    "include": [
+        "frontend/ts/*"
+    ]
+}
