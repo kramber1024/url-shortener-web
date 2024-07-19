@@ -2,7 +2,7 @@ from flask import Flask
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 from app.config import settings
-from app.views import blueprint
+from app.views.pages import pages
 
 app: Flask = Flask(__name__)
 app.wsgi_app = ProxyFix(  # type: ignore[method-assign]
@@ -12,7 +12,7 @@ app.wsgi_app = ProxyFix(  # type: ignore[method-assign]
     x_host=1,
     x_prefix=1,
 )
-app.register_blueprint(blueprint)
+app.register_blueprint(pages)
 
 if __name__ == "__main__":
     debug: bool = True
