@@ -1,0 +1,46 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "Webpack",
+            "icon": {
+                "id": "package"
+            },
+            "type": "shell",
+            "command": "npm run webpack_watch",
+            "group": {
+                "kind": "none",
+                "isDefault": true
+            },
+            "isBackground": true,
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            },
+            "problemMatcher": ["$tsc-watch"],
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "Gulp",
+            "icon": {
+                "id": "database"
+            },
+            "type": "shell",
+            "command": "npm run gulp_watch",
+            "group": {
+                "kind": "none",
+                "isDefault": true
+            },
+            "isBackground": true,
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+}
