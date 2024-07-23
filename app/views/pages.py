@@ -33,3 +33,12 @@ def login() -> tuple[str, int]:
         page_name="login",
         brand_name=settings.app.NAME,
     ), 200
+
+
+@pages.route("/app", methods=["GET"])
+def app() -> tuple[str, int]:
+    return render_template(
+        "/templates/app.html",
+        page_name="app",
+        brand_name=settings.app.NAME,
+    ), 200
