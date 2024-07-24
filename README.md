@@ -10,3 +10,7 @@
     - 🎨 [SCSS](https://sass-lang.com/) for styles.
 - ✅ Tests with [**Pytest**](https://pytest.org/).
 - 🐋 [**Docker**](https://www.docker.com/) for development, testing and deploy.
+
+## Warning
+
+This repository is part of a larger project that consists of multiple repositories. Using this repository on its own is not recommended, as it may not function correctly without the other components of the project. For complete functionality and proper integration, please refer to the [kramber1024/url-shortener](https://github.com/kramber1024/url-shortener).
