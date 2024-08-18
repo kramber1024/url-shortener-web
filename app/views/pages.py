@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 
 from app.config import settings
+from app.views.types_ import Response
 
 pages: Blueprint = Blueprint(
     "pages",
@@ -13,12 +14,12 @@ pages: Blueprint = Blueprint(
 
 
 @pages.route("/", methods=["GET"])
-def index() -> tuple[str, int]:
+def index() -> Response:
     return "ushort", 200
 
 
 @pages.route("/signup", methods=["GET"])
-def signup() -> tuple[str, int]:
+def signup() -> Response:
     return render_template(
         "/templates/signup.html",
         page_name="signup",
@@ -27,7 +28,7 @@ def signup() -> tuple[str, int]:
 
 
 @pages.route("/login", methods=["GET"])
-def login() -> tuple[str, int]:
+def login() -> Response:
     return render_template(
         "/templates/login.html",
         page_name="login",
@@ -36,7 +37,7 @@ def login() -> tuple[str, int]:
 
 
 @pages.route("/app", methods=["GET"])
-def app() -> tuple[str, int]:
+def app() -> Response:
     return render_template(
         "/templates/app.html",
         page_name="app",
