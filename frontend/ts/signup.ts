@@ -26,7 +26,7 @@ form.addEventListener("submit", async (event) => {
     } else if (firstName.length < 3) {
         isFormValid = false;
         showError("first_name", firstNameInput.getAttribute("data-msg-minlength") as string);
-    } else if (firstName.length > 32) {
+    } else if (firstName.length > 16) {
         isFormValid = false;
         showError("first_name", firstNameInput.getAttribute("data-msg-maxlength") as string);
     } else {
@@ -40,7 +40,7 @@ form.addEventListener("submit", async (event) => {
     if (lastName.length < 3 && lastName.length > 0) {
         isFormValid = false;
         showError("last_name", lastNameInput.getAttribute("data-msg-minlength") as string);
-    } else if (lastName.length > 32) {
+    } else if (lastName.length > 16) {
         isFormValid = false;
         showError("last_name", lastNameInput.getAttribute("data-msg-maxlength")  as string);
     } else {
