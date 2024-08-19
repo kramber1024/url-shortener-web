@@ -1,12 +1,12 @@
-@use '../../abstracts/colors' as colors;
-@use '../../abstracts/mixins' as mixins;
+@use "../../abstracts/colors" as colors;
+@use "../../abstracts/mixins" as mixins;
 
-@use '../../utilities/no-select';
+@use "../../utilities/no-select";
 
 .brand-link {
   display: flex;
-  align-items: center;
   flex-direction: row;
+  align-items: center;
   text-decoration: none;
 
   & > &__logo-wrapper {
@@ -28,7 +28,7 @@
   }
 
   & > span {
-    @include mixins.font('brand');
+    @include mixins.font("brand");
     margin-left: 10px;
   }
 }

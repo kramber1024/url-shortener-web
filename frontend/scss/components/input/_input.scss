@@ -1,6 +1,6 @@
-@use '../../abstracts/box-shadows' as box-shadows;
-@use '../../abstracts/colors' as colors;
-@use '../../abstracts/mixins' as mixins;
+@use "../../abstracts/box-shadows" as box-shadows;
+@use "../../abstracts/colors" as colors;
+@use "../../abstracts/mixins" as mixins;
 
 $input-height: 43px;
 $input-border: colors.$border;
@@ -13,33 +13,33 @@ $label-font-color: colors.$background-font-color;
 $label-error-font-color: colors.$error-font-color;
 
 .input {
-  @include mixins.font('content');
+  @include mixins.font("content");
+  transition: border 0.5s ease;
   box-sizing: border-box;
-  width: 100%;
-  height: $input-height;
-  padding: 11px 15px;
   border: 1px solid $input-border;
   border-radius: $input-border-radius;
   background-color: $input-background;
-  transition: border 0.5s ease;
+  padding: 11px 15px;
+  width: 100%;
+  height: $input-height;
 
   &:focus {
     outline: none;
-    border: 1px solid $input-focus-outline;
     box-shadow: $input-focus-box-shadow;
+    border: 1px solid $input-focus-outline;
   }
 
   @include mixins.placeholder {
-    @include mixins.font('content', $input-placeholder-font-color);
+    @include mixins.font("content", $input-placeholder-font-color);
   }
 
-  &[type='password'] {
+  &[type="password"] {
     letter-spacing: 0.15rem;
   }
 }
 
 label[for] {
-  @include mixins.font('content', $label-font-color);
+  @include mixins.font("content", $label-font-color);
   margin: 20px 0 6px 0;
 
   &.error {
