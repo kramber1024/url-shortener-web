@@ -15,14 +15,14 @@ pages: Blueprint = Blueprint(
 
 @pages.route("/", methods=["GET"])
 def index() -> Response:
-    return "ushort", 200
+    return index.__name__, 200
 
 
 @pages.route("/signup", methods=["GET"])
 def signup() -> Response:
     return render_template(
         "/templates/signup.html",
-        page_name="signup",
+        page_name=signup.__name__,
         brand_name=settings.app.NAME,
     ), 200
 
@@ -31,7 +31,7 @@ def signup() -> Response:
 def login() -> Response:
     return render_template(
         "/templates/login.html",
-        page_name="login",
+        page_name=login.__name__,
         brand_name=settings.app.NAME,
     ), 200
 
@@ -40,6 +40,6 @@ def login() -> Response:
 def app() -> Response:
     return render_template(
         "/templates/app.html",
-        page_name="app",
+        page_name=app.__name__,
         brand_name=settings.app.NAME,
     ), 200
