@@ -59,7 +59,7 @@ unfixable = []
 "**test**" = [
     "S101",   # Disable check for use of assert in tests
     "SLF001", # Disable check for use of private members in tests
-] 
+]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -72,20 +72,11 @@ warn_return_any = true
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
 ignore_missing_imports = true
-exclude = [
-    ".git",
-    ".mypy_cache",
-    ".pytest_cache",
-    ".venv",
-    ".vscode",
-]
+exclude = [".git", ".mypy_cache", ".pytest_cache", ".venv", ".vscode"]
 
 
 [tool.coverage.run]
-omit = [
-    "tests/*",
-    "app/main.py",
-]
+omit = ["tests/*", "app/main.py"]
 
 [tool.coverage.report]
 exclude_lines = [
