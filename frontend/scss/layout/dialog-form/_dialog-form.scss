@@ -1,6 +1,6 @@
-@use '../../abstracts/breakpoints' as breakpoints;
-@use '../../abstracts/colors' as colors;
-@use '../../abstracts/mixins' as mixins;
+@use "../../abstracts/breakpoints" as breakpoints;
+@use "../../abstracts/colors" as colors;
+@use "../../abstracts/mixins" as mixins;
 
 $dialog-padding: 20px;
 $dialog-form-width: 350px;
@@ -13,13 +13,13 @@ $dialog-footer-font-color: colors.$background-secondary-font-color;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: 100%;
-  padding: $dialog-padding;
   border-radius: $dialog-border-radius;
   background-color: $dialog-background;
+  padding: $dialog-padding;
+  width: 100%;
 
   & > h1 {
-    @include mixins.font('title');
+    @include mixins.font("title");
   }
 
   & > form {
@@ -33,7 +33,7 @@ $dialog-footer-font-color: colors.$background-secondary-font-color;
   }
 
   & + div.dialog-footer {
-    @include mixins.font('content', $dialog-footer-font-color);
+    @include mixins.font("content", $dialog-footer-font-color);
     margin-top: 40px;
     text-align: center;
     text-decoration: none;
@@ -44,8 +44,8 @@ $dialog-footer-font-color: colors.$background-secondary-font-color;
   }
 
   @include mixins.responsive(breakpoints.$XS) {
-    width: unset;
     border: 1px solid $dialog-border;
+    width: unset;
   }
 
   @include mixins.responsive-landscape(breakpoints.$XS) {

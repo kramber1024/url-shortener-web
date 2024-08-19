@@ -1,6 +1,6 @@
-@use '../../abstracts/breakpoints' as breakpoints;
-@use '../../abstracts/colors' as colors;
-@use '../../abstracts/mixins' as mixins;
+@use "../../abstracts/breakpoints" as breakpoints;
+@use "../../abstracts/mixins" as mixins;
+@use "../../abstracts/colors" as colors;
 
 $navbar-height: 72px;
 $navbar-padding: 20px;
@@ -10,23 +10,23 @@ $navbar-content-max-width: 1340px;
 
 .navbar-container {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   box-sizing: border-box;
+  border-bottom: 1px solid $navbar-border;
+  background-color: $navbar-background;
+  padding: $navbar-padding 0;
   width: 100%;
   height: calc($navbar-height + 1px);
   min-height: calc($navbar-height + 1px);
-  padding: $navbar-padding 0;
-  border-bottom: 1px solid $navbar-border;
-  background-color: $navbar-background;
 
   & > .navbar {
     display: flex;
     align-items: center;
+    margin: 0 $navbar-padding;
     width: 100%;
     max-width: $navbar-content-max-width;
     height: 100%;
-    margin: 0 $navbar-padding;
 
     @include mixins.responsive(breakpoints.$S) {
       width: 80%;
