@@ -2,7 +2,6 @@
     "compilerOptions": {
         "module": "NodeNext",
         "noUncheckedIndexedAccess": true,
-        "verbatimModuleSyntax": true,
         "moduleDetection": "force",
         "isolatedModules": true,
         "target": "ES5",
