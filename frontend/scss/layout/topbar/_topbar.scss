@@ -1,3 +1,18 @@
 @use "../../abstracts/breakpoints" as breakpoints;
 @use "../../abstracts/colors" as colors;
 @use "../../abstracts/mixins" as mixins;
+
+$topbar-height: 72px;
+$topbar-padding: 20px;
+$topbar-background: colors.$background;
+$topbar-border: colors.$border;
+
+.topbar-container {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: $topbar-background;
+  width: 100%;
+  height: calc($topbar-height + 1px);
+  min-height: calc($topbar-height + 1px);
+}
