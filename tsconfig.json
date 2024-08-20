@@ -1,23 +1,24 @@
 {
-    "compileOnSave": true,
     "compilerOptions": {
-        "module": "ESNext",
-        "moduleResolution": "Bundler",
-        "target": "ES2016",
+        "module": "NodeNext",
+        "noUncheckedIndexedAccess": true,
+        "verbatimModuleSyntax": true,
+        "moduleDetection": "force",
+        "isolatedModules": true,
+        "target": "ES5",
         "checkJs": true,
+        "jsx": "react-jsx",
+        /* Strictness */
         "strict": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,
-        "outDir": "./app/static/js/",
-        "baseUrl": "./frontend/ts/",
+        "noImplicitOverride": true,
     },
     "exclude": [
-        "/node_modules",
-        "**/node_modules/*",
-        "./app/static/js/*",
-        "htmlcov/*",
+        "./node_modules/**",
+        "./htmlcov/**",
     ],
     "include": [
-        "frontend/ts/*"
+        "./src/**/*",
     ]
 }
