@@ -19,7 +19,7 @@
             },
             "problemMatcher": ["$tsc-watch"],
             "runOptions": {
-                "runOn": "folderOpen"
+                "runOn": "default"
             }
         },
         {
@@ -39,7 +39,7 @@
                 "panel": "shared"
             },
             "runOptions": {
-                "runOn": "folderOpen"
+                "runOn": "default"
             }
         }
     ]
