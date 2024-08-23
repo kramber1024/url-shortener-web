@@ -2,33 +2,12 @@
 	"version": "2.0.0",
 	"tasks": [
         {
-            "label": "Webpack",
+            "label": "SCSS Typescript Types",
             "icon": {
-                "id": "package"
+                "id": "symbol-color"
             },
             "type": "shell",
-            "command": "npm run webpack_watch",
-            "group": {
-                "kind": "none",
-                "isDefault": true
-            },
-            "isBackground": true,
-            "presentation": {
-                "reveal": "silent",
-                "panel": "shared"
-            },
-            "problemMatcher": ["$tsc-watch"],
-            "runOptions": {
-                "runOn": "default"
-            }
-        },
-        {
-            "label": "Gulp",
-            "icon": {
-                "id": "database"
-            },
-            "type": "shell",
-            "command": "npm run gulp_watch",
+            "command": "npx typed-scss-modules src -w -e default --ignore '${cwd}/src/styles/**/*.scss'",
             "group": {
                 "kind": "none",
                 "isDefault": true
@@ -39,7 +18,7 @@
                 "panel": "shared"
             },
             "runOptions": {
-                "runOn": "default"
+                "runOn": "folderOpen"
             }
         }
     ]
