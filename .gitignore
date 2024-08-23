@@ -1,9 +1,2 @@
-__pycache__/
-.mypy_cache/
-.pytest_cache/
-.venv/
-venv/
-*.pyc
-.coverage
-htmlcov/
+.next/
 node_modules/
