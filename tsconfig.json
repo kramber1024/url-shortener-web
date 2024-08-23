@@ -1,23 +1,40 @@
 {
-    "compilerOptions": {
-        "module": "NodeNext",
-        "noUncheckedIndexedAccess": true,
-        "moduleDetection": "force",
-        "isolatedModules": true,
-        "target": "ES5",
-        "checkJs": true,
-        "jsx": "react-jsx",
-        /* Strictness */
-        "strict": true,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "noImplicitOverride": true,
-    },
-    "exclude": [
-        "./node_modules/**",
-        "./htmlcov/**",
+  "compilerOptions": {
+    "incremental": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "moduleDetection": "force",
+    "target": "ES5",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
     ],
-    "include": [
-        "./src/**/*",
-    ]
+    /* Imports */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    /* Strictness */
+    "strict": true,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+  },
+  "include": [
+    "./src/**/*.ts", "./src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+  ],
 }
