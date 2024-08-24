@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from "react";
 import styles from "./Layout.module.scss";
+import "@styles/global.scss";
 
 interface LayoutProps {
   children: ReactNode;
