@@ -1,0 +1,46 @@
+@use "../../styles/abstracts/box-shadows" as box-shadows;
+@use "../../styles/abstracts/colors" as colors;
+@use "../../styles/abstracts/mixins" as mixins;
+
+$button-height: 48px;
+$button-background: colors.$brand;
+$button-border: $button-background;
+$button-border-radius: 10px;
+$button-box-shadow: box-shadows.$button-box-shadow;
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    opacity 0.5s ease,
+    scale 100ms ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: $button-box-shadow;
+  border: 1px solid $button-border;
+  border-radius: $button-border-radius;
+  background-color: $button-background;
+  padding: 14px 18px;
+  width: 100%;
+  height: $button-height;
+  @include mixins.font("content", colors.$background);
+
+  &.secondary {
+    background-color: unset;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active:not(:disabled) {
+    scale: 0.98;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
