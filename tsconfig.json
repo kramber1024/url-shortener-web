@@ -21,11 +21,11 @@
     /* Imports */
     "baseUrl": "./src",
     "paths": {
-      "@/*": [
-        "/*"
-      ],
       "@components/*": [
         "components/*"
+      ],
+      "@styles/*": [
+        "styles/*"
       ],
     },
     /* Strictness */
