@@ -3,10 +3,13 @@
     "incremental": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "skipLibCheck": true,
     "moduleDetection": "force",
-    "target": "ES5",
     "module": "esnext",
     "moduleResolution": "bundler",
     "jsx": "preserve",
@@ -18,7 +21,12 @@
     /* Imports */
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
     },
     /* Strictness */
     "strict": true,
@@ -29,12 +37,14 @@
     "noUncheckedIndexedAccess": true,
     "allowJs": true,
     "checkJs": true,
-    "noEmit": true,
+    "noEmit": true
   },
   "include": [
-    "./src/**/*.ts", "./src/**/*.tsx"
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-  ],
+    "node_modules"
+  ]
 }
