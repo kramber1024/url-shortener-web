@@ -1,0 +1,39 @@
+@use "../../styles/abstracts/breakpoints" as breakpoints;
+@use "../../styles/abstracts/mixins" as mixins;
+@use "../../styles/abstracts/colors" as colors;
+
+$navbar-height: 72px;
+$navbar-padding: 20px;
+$navbar-background: colors.$background;
+$navbar-border: colors.$border;
+$navbar-content-max-width: 1340px;
+
+nav.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid $navbar-border;
+  background-color: $navbar-background;
+  padding: $navbar-padding 0;
+  width: 100%;
+  height: calc($navbar-height + 1px);
+  min-height: calc($navbar-height + 1px);
+
+  & > div {
+    display: flex;
+    align-items: center;
+    margin: 0 $navbar-padding;
+    width: 100%;
+    max-width: $navbar-content-max-width;
+    height: 100%;
+
+    @include mixins.responsive(breakpoints.$S) {
+      width: 80%;
+    }
+
+    @include mixins.responsive(breakpoints.$L) {
+      width: 100%;
+    }
+  }
+}
