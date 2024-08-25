@@ -27,6 +27,9 @@
       "@styles/*": [
         "styles/*"
       ],
+      "@pages/*": [
+        "pages/*"
+      ],
     },
     /* Strictness */
     "strict": true,
