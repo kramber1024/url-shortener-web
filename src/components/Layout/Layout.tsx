@@ -1,13 +1,15 @@
-import type { ReactNode } from "react";
-import type React from "react";
-import styles from "./Layout.module.scss";
 import "@styles/global.scss";
+
+import type React from "react";
+import type { ReactNode } from "react";
+
+import styles from "./Layout.module.scss";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps): React.JSX.Element => {
+export const Layout = ({ children }: Readonly<LayoutProps>): React.JSX.Element => {
   return (
     <html lang="en">
       <body>
@@ -16,5 +18,3 @@ const Layout = ({ children }: LayoutProps): React.JSX.Element => {
     </html>
   );
 };
-
-export default Layout;
