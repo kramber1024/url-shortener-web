@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const nextConfig = {
   reactStrictMode: true,
   webpack: (config) => {
-    config.resolve.alias["~styles"] = "src/styles/";
+    config.resolve.alias["@styles"] = "src/styles/";
 
     return config;
   },

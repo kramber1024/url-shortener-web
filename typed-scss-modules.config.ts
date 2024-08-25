@@ -4,7 +4,7 @@ export const config = {
   exportType: "named",
   quoteType: "double",
   aliasPrefixes: {
-    "~styles": "./src/styles",
+    "@styles": "./src/styles",
   },
   ignore: ["node_modules"],
 };
