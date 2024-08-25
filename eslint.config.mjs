@@ -27,11 +27,12 @@ export default tseslint.config(
       ".next/*",
       "node_modules/*",
       "next-env.d.ts",
+      /* Configs */
       "next.config.mjs",
       "eslint.config.mjs",
+      "typed-scss-modules.config.ts",
     ],
   },
-
   eslint.configs.recommended,
   tseslint.configs.eslintRecommended,
   ...tseslint.configs.strictTypeChecked,
@@ -40,7 +41,6 @@ export default tseslint.config(
   jsdocPlugin.configs["flat/recommended-typescript-error"],
   {
     languageOptions: {
-      //   parser: "@typescript-eslint/parser",
       parserOptions: {
         sourceType: "module",
         project: "./tsconfig.json",
