@@ -1,5 +1,5 @@
-import type { ReactElement } from "react";
 import styles from "./Button.module.scss";
+import type React from "react";
 
 interface ButtonProps {
   primary?: boolean;
@@ -13,7 +13,7 @@ const Button = ({
   disabled = false,
   onClick,
   children,
-}: ButtonProps): ReactElement => {
+}: ButtonProps): React.JSX.Element => {
   return (
     <button
       className={`${styles.button} ${primary ? "" : styles.secondary}`}
