@@ -7,7 +7,7 @@
                 "id": "symbol-color"
             },
             "type": "shell",
-            "command": "npx typed-scss-modules src -w -e default --ignore '${cwd}/src/styles/**/*.scss'",
+            "command": "npx typed-scss-modules src -w -e named --ignore '${cwd}/src/styles/**/*.scss' -q 'double'",
             "group": {
                 "kind": "none",
                 "isDefault": true
