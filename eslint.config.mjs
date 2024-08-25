@@ -1,0 +1,122 @@
+// @ts-check
+
+import tseslint from "typescript-eslint";
+import eslint from "@eslint/js";
+import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
+import jsdocPlugin from "eslint-plugin-jsdoc";
+import perfectionistPlugin from "eslint-plugin-perfectionist";
+import reactPlugin from "eslint-plugin-react";
+import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
+import importPlugin from "eslint-plugin-import";
+import unicornPlugin from "eslint-plugin-unicorn";
+
+export default tseslint.config(
+  {
+    plugins: {
+      ["@typescript-eslint"]: tseslint.plugin,
+      ["jsdoc"]: jsdocPlugin,
+      ["react"]: fixupPluginRules(reactPlugin),
+      ["simple-import-sort"]: simpleImportSortPlugin,
+      ["import"]: fixupPluginRules(importPlugin),
+      ["unicorn"]: unicornPlugin,
+    },
+  },
+
+  {
+    ignores: [
+      ".next/*",
+      "node_modules/*",
+      "next-env.d.ts",
+      "next.config.mjs",
+      "eslint.config.mjs",
+    ],
+  },
+
+  eslint.configs.recommended,
+  tseslint.configs.eslintRecommended,
+  ...tseslint.configs.strictTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
+  ...tseslint.configs.strict,
+  jsdocPlugin.configs["flat/recommended-typescript-error"],
+  {
+    languageOptions: {
+      //   parser: "@typescript-eslint/parser",
+      parserOptions: {
+        sourceType: "module",
+        project: "./tsconfig.json",
+      },
+    },
+    rules: {
+      curly: ["error", "all"],
+      eqeqeq: [
+        "error",
+        "always",
+        {
+          null: "never",
+        },
+      ],
+      "logical-assignment-operators": "error",
+      "no-else-return": "error",
+      "no-mixed-operators": "error",
+      "no-console": "error",
+      "no-process-exit": "error",
+      "no-fallthrough": ["error", { commentPattern: ".*intentional fallthrough.*" }],
+      "no-implicit-coercion": ["error", { boolean: false }],
+      "no-lonely-if": "error",
+      "no-unreachable-loop": "error",
+      "no-useless-call": "error",
+      "no-useless-computed-key": "error",
+      "no-useless-concat": "error",
+      "no-var": "error",
+      "no-void": ["error", { allowAsStatement: true }],
+      "object-shorthand": "error",
+      "one-var": ["error", "never"],
+      "operator-assignment": "error",
+      "prefer-arrow-callback": "error",
+      "prefer-const": "error",
+      "prefer-object-has-own": "error",
+      "prefer-object-spread": "error",
+      "prefer-rest-params": "error",
+      "prefer-template": "error",
+      radix: "error",
+      "import/consistent-type-specifier-style": "error",
+      "import/first": "error",
+      "import/newline-after-import": "error",
+      "import/no-absolute-path": "error",
+      "import/no-amd": "error",
+      "import/no-default-export": "error",
+      "import/no-duplicates": "error",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          devDependencies: true,
+          peerDependencies: true,
+          optionalDependencies: false,
+        },
+      ],
+      "import/no-mutable-exports": "error",
+      "import/no-named-default": "error",
+      "import/no-self-import": "error",
+      "simple-import-sort/imports": "error",
+      "jsdoc/informative-docs": "error",
+      "unicorn/no-lonely-if": "error",
+      "unicorn/no-typeof-undefined": "error",
+      "unicorn/no-useless-spread": "error",
+      "unicorn/prefer-node-protocol": "error",
+      "unicorn/prefer-regexp-test": "error",
+      "unicorn/prefer-string-replace-all": "error",
+    },
+  },
+  {
+    files: ["src/pages/**/*"],
+    rules: {
+      "import/no-default-export": "off",
+    },
+  },
+  {
+    files: ["src/app/**/{page,layout,not-found}.tsx"],
+    rules: {
+      "import/no-default-export": "off",
+    },
+  }
+);
