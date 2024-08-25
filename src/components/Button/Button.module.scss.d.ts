@@ -1,10 +1,2 @@
-export type Styles = {
-  button: string;
-  secondary: string;
-};
-
-export type ClassNames = keyof Styles;
-
-declare const styles: Styles;
-
-export default styles;
+export declare const button: string;
+export declare const secondary: string;

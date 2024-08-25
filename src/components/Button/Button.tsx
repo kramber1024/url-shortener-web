@@ -1,5 +1,6 @@
-import styles from "./Button.module.scss";
 import type React from "react";
+
+import styles from "./Button.module.scss";
 
 interface ButtonProps {
   primary?: boolean;
@@ -8,12 +9,12 @@ interface ButtonProps {
   children: string;
 }
 
-const Button = ({
+export const Button = ({
   primary = true,
   disabled = false,
   onClick,
   children,
-}: ButtonProps): React.JSX.Element => {
+}: Readonly<ButtonProps>): React.JSX.Element => {
   return (
     <button
       className={`${styles.button} ${primary ? "" : styles.secondary}`}
@@ -24,5 +25,3 @@ const Button = ({
     </button>
   );
 };
-
-export default Button;
