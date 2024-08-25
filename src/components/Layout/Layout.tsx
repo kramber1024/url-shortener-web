@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from "react";
+import type { JSX, ReactNode } from "react";
 import styles from "./Layout.module.scss";
 import "@styles/global.scss";
 
@@ -6,7 +6,7 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps): ReactElement => {
+const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <html lang="en">
       <body>
