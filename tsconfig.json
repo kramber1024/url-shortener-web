@@ -27,8 +27,8 @@
       "@styles/*": [
         "styles/*"
       ],
-      "@pages/*": [
-        "pages/*"
+      "@types": [
+        "types/"
       ],
     },
     /* Strictness */
