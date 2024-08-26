@@ -1,14 +1,11 @@
 import type React from "react";
-import type { ReactNode } from "react";
 
-import styles from "./FormFooter.module.scss";
+import type { FormFooterProps } from "./FormFooter.types";
 
-interface FormFooterProps {
-  children: ReactNode;
-}
+import "./FormFooter.scss";
 
 export const FormFooter = ({
   children,
 }: Readonly<FormFooterProps>): React.JSX.Element => {
-  return <div className={styles.formFooter}>{children}</div>;
+  return <div className="form-footer">{children}</div>;
 };
