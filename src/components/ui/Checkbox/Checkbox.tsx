@@ -1,6 +1,6 @@
 import type React from "react";
 
-import style from "./Checkbox.module.scss";
+import "./Checkbox.scss";
 
 interface CheckboxProps {
   name: string;
@@ -13,7 +13,7 @@ export const Checkbox = ({
 }: CheckboxProps): React.JSX.Element => {
   return (
     <input
-      className={style.checkbox}
+      className="checkbox"
       id={name}
       name={name}
       required={required}
