@@ -2,7 +2,7 @@ interface Message {
   message: string;
 }
 
-interface Error extends Message {
+export interface Error extends Message {
   type: string;
 }
 
