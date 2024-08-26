@@ -1,11 +1,11 @@
-import { Layout } from "@components/Layout";
+import { Layout } from "@components/layouts/Layout";
 import type { ReactNode } from "react";
 
-const RootLayout = ({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: ReactNode;
-}>) => {
+}
+
+const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return <Layout>{children}</Layout>;
 };
 
