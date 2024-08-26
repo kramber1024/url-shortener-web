@@ -5,6 +5,7 @@ export const config = {
   quoteType: "double",
   aliasPrefixes: {
     "@styles": "./src/styles",
+    "@components": "./src/components",
   },
   ignore: ["node_modules"],
 };

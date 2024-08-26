@@ -9,6 +9,7 @@ const nextConfig = {
   reactStrictMode: true,
   webpack: (config) => {
     config.resolve.alias["@styles"] = "src/styles/";
+    config.resolve.alias["@components"] = "src/components/";
 
     return config;
   },
