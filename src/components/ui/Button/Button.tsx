@@ -2,6 +2,8 @@ import type React from "react";
 
 import type { ButtonProps } from "./Button.types";
 
+import "./Button.scss";
+
 export const Button = ({
   children,
   disabled = false,
