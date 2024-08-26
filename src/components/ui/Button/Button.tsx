@@ -1,25 +1,22 @@
 import type React from "react";
 
-import styles from "./Button.module.scss";
-
-interface ButtonProps {
-  children: string;
-  disabled?: boolean;
-  onClick?: () => void;
-  primary?: boolean;
-}
+import type { ButtonProps } from "./Button.types";
 
 export const Button = ({
   children,
   disabled = false,
+  form,
   onClick,
   primary = true,
+  type = "button",
 }: Readonly<ButtonProps>): React.JSX.Element => {
   return (
     <button
-      className={`${styles.button} ${primary ? "" : styles.secondary}`}
+      className={`button ${primary ? "" : "secondary"}`}
       disabled={disabled}
+      form={form}
       onClick={onClick}
+      type={type}
     >
       {children}
     </button>

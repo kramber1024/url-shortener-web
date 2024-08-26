@@ -8,7 +8,7 @@ $button-border: $button-background;
 $button-border-radius: 10px;
 $button-box-shadow: box-shadows.$button-box-shadow;
 
-.button {
+button.button {
   display: flex;
   justify-content: center;
   align-items: center;
