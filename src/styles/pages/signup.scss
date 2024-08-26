@@ -1,5 +1,9 @@
+@use "@styles/abstracts/colors" as colors;
+@use "@styles/abstracts/mixins" as mixins;
+
 main.content {
   flex: 1;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -21,18 +25,19 @@ div.splitted-input {
   }
 }
 
-.terms-container {
+div.terms-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   box-sizing: content-box;
   margin-top: 20px;
+  @include mixins.font("content", colors.$background-font-color);
 }
 
 label[for="terms"].error {
   margin-top: -2px;
 }
 
-.button {
+button.button {
   margin-top: 14px;
 }
