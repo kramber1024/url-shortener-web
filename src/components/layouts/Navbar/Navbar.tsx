@@ -10,7 +10,7 @@ interface NavbarProps {
 export const Navbar = ({ children }: Readonly<NavbarProps>): React.JSX.Element => {
   return (
     <nav className={styles.navbar}>
-      <div>{children}</div>
+      <div className={styles.navbarContent}>{children}</div>
     </nav>
   );
 };
