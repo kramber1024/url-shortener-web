@@ -14,30 +14,37 @@ type Autocomplete =
   | "off";
 
 interface InputProps {
+  title: string;
   name: string;
-  type: Type;
+  placeholder?: string;
+  type?: Type;
   autocomplete?: Autocomplete;
-  placeholder: string;
-  required: boolean;
+  required?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input = ({
+  title,
   name,
-  type,
-  autocomplete = "off",
   placeholder,
-  required,
+  type = "text",
+  autocomplete = "off",
+  required = false,
 }: Readonly<InputProps>): React.JSX.Element => {
   return (
-    <input
-      id={name}
-      name={name}
-      type={type}
-      className={style.input}
-      placeholder={placeholder}
-      autoComplete={autocomplete}
-      required={required}
-    />
+    <>
+      <label className={style.inputTitle} htmlFor={name}>
+        {title}
+      </label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        className={style.input}
+        placeholder={placeholder}
+        autoComplete={autocomplete}
+        required={required}
+      />
+    </>
   );
 };

@@ -12,6 +12,16 @@ $input-focus-box-shadow: box-shadows.$input-focus-box-shadow;
 $label-font-color: colors.$background-font-color;
 $label-error-font-color: colors.$error-font-color;
 
+label[for].inputTitle {
+  margin: 20px 0 6px 0;
+  @include mixins.font("content", $label-font-color);
+
+  &.error {
+    margin: 6px 0 0 0;
+    color: $label-error-font-color;
+  }
+}
+
 input.input {
   transition: border 0.5s ease;
   box-sizing: border-box;
@@ -35,15 +45,5 @@ input.input {
 
   &[type="password"] {
     letter-spacing: 0.15rem;
-  }
-}
-
-label[for] {
-  margin: 20px 0 6px 0;
-  @include mixins.font("content", $label-font-color);
-
-  &.error {
-    margin: 6px 0 0 0;
-    color: $label-error-font-color;
   }
 }
