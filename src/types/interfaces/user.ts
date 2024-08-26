@@ -12,7 +12,7 @@ interface UserWithName extends LoginUser {
 }
 
 export interface CreateUser extends UserWithName {
-  terms: "on" | "off";
+  terms: "off" | "on";
 }
 
 export interface User extends UserWithName {

@@ -1,1 +1,1 @@
-export type { User, CreateUser, LoginUser } from "./interfaces";
+export * from "./interfaces";
