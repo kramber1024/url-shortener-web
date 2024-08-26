@@ -3,17 +3,17 @@ import type React from "react";
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
-  primary?: boolean;
+  children: string;
   disabled?: boolean;
   onClick?: () => void;
-  children: string;
+  primary?: boolean;
 }
 
 export const Button = ({
-  primary = true,
+  children,
   disabled = false,
   onClick,
-  children,
+  primary = true,
 }: Readonly<ButtonProps>): React.JSX.Element => {
   return (
     <button

@@ -4,15 +4,15 @@ import type { ReactNode } from "react";
 import styles from "./Brand.module.scss";
 
 interface BrandProps {
-  name: string;
-  link?: string;
   children: ReactNode;
+  link?: string;
+  name: string;
 }
 
 export const Brand = ({
-  name,
-  link = "/",
   children,
+  link = "/",
+  name,
 }: Readonly<BrandProps>): React.JSX.Element => {
   return (
     <a className={styles.brand} href={link}>

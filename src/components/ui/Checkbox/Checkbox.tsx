@@ -13,11 +13,11 @@ export const Checkbox = ({
 }: CheckboxProps): React.JSX.Element => {
   return (
     <input
+      className={style.checkbox}
       id={name}
       name={name}
-      className={style.checkbox}
-      type="checkbox"
       required={required}
+      type="checkbox"
     />
   );
 };

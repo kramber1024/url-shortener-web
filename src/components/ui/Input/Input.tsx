@@ -1,4 +1,5 @@
 import type { ChangeEvent } from "react";
+
 import React from "react";
 
 import style from "./Input.module.scss";
@@ -6,30 +7,30 @@ import style from "./Input.module.scss";
 type Type = "email" | "password" | "text";
 
 type Autocomplete =
-  | "email"
   | "current-password"
-  | "new-password"
-  | "given-name"
+  | "email"
   | "family-name"
+  | "given-name"
+  | "new-password"
   | "off";
 
 interface InputProps {
-  title: string;
-  name: string;
-  placeholder?: string;
-  type?: Type;
   autocomplete?: Autocomplete;
-  required?: boolean;
+  name: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  required?: boolean;
+  title: string;
+  type?: Type;
 }
 
 export const Input = ({
-  title,
+  autocomplete = "off",
   name,
   placeholder,
-  type = "text",
-  autocomplete = "off",
   required = false,
+  title,
+  type = "text",
 }: Readonly<InputProps>): React.JSX.Element => {
   return (
     <>
@@ -37,13 +38,13 @@ export const Input = ({
         {title}
       </label>
       <input
+        autoComplete={autocomplete}
+        className={style.input}
         id={name}
         name={name}
-        type={type}
-        className={style.input}
         placeholder={placeholder}
-        autoComplete={autocomplete}
         required={required}
+        type={type}
       />
     </>
   );

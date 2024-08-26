@@ -4,13 +4,13 @@ import type { ReactNode } from "react";
 import styles from "./AuthForm.module.scss";
 
 interface AuthFormProps {
-  title: string;
   children: ReactNode;
+  title: string;
 }
 
 export const AuthForm = ({
-  title,
   children,
+  title,
 }: Readonly<AuthFormProps>): React.JSX.Element => {
   return (
     <div className={styles.authForm}>
