@@ -8,7 +8,7 @@ $dialog-border: colors.$border;
 $dialog-border-radius: 30px;
 $dialog-background: colors.$background;
 
-div.authForm {
+div.auth-form {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -17,7 +17,7 @@ div.authForm {
   padding: $dialog-padding;
   width: 100%;
 
-  & > h1 {
+  & > h1.auth-form-title {
     @include mixins.font("title");
   }
 

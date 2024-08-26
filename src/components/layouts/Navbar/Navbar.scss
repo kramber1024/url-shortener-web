@@ -20,7 +20,7 @@ nav.navbar {
   height: calc($navbar-height + 1px);
   min-height: calc($navbar-height + 1px);
 
-  & > div.navbarContent {
+  & > div.navbar-content {
     display: flex;
     align-items: center;
     margin: 0 $navbar-padding;

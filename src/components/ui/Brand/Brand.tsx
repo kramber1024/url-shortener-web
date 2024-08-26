@@ -1,7 +1,7 @@
 import type React from "react";
 import type { ReactNode } from "react";
 
-import styles from "./Brand.module.scss";
+import "./Brand.scss";
 
 interface BrandProps {
   children: ReactNode;
@@ -15,9 +15,9 @@ export const Brand = ({
   name,
 }: Readonly<BrandProps>): React.JSX.Element => {
   return (
-    <a className={styles.brand} href={link}>
-      <div>{children}</div>
-      <span>{name}</span>
+    <a className="brand" href={link}>
+      <div className="brand-logo">{children}</div>
+      <span className="brand-name">{name}</span>
     </a>
   );
 };

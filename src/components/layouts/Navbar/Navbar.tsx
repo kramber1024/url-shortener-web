@@ -1,7 +1,7 @@
 import type React from "react";
 import type { ReactNode } from "react";
 
-import styles from "./Navbar.module.scss";
+import "./Navbar.scss";
 
 interface NavbarProps {
   children: ReactNode;
@@ -9,8 +9,8 @@ interface NavbarProps {
 
 export const Navbar = ({ children }: Readonly<NavbarProps>): React.JSX.Element => {
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.navbarContent}>{children}</div>
+    <nav className="navbar">
+      <div className="navbar-content">{children}</div>
     </nav>
   );
 };

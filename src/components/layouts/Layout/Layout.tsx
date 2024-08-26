@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import "@styles/global.scss";
 import { Inter } from "next/font/google";
 
-import styles from "./Layout.module.scss";
+import "./Layout.scss";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], weight: ["400", "500", "600"] });
 
@@ -24,7 +24,7 @@ export const Layout = ({ children }: Readonly<LayoutProps>): React.JSX.Element =
   return (
     <html lang="en">
       <body>
-        <div className={`${styles.fullpage} ${inter.className}`}>{children}</div>
+        <div className={`fullpage ${inter.className}`}>{children}</div>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@
   align-items: center;
   text-decoration: none;
 
-  & > div {
+  & > div.brand-logo {
     width: 32px;
     height: 32px;
 
@@ -25,7 +25,7 @@
     }
   }
 
-  & > span {
+  & > span.brand-name {
     margin-left: 10px;
     user-select: none;
     @include mixins.font("brand");

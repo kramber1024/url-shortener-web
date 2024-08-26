@@ -1,7 +1,7 @@
 import type React from "react";
 import type { ReactNode } from "react";
 
-import styles from "./Link.module.scss";
+import "./Link.scss";
 
 interface LinkProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface LinkProps {
 
 export const Link = ({ children, href }: Readonly<LinkProps>): React.JSX.Element => {
   return (
-    <a className={styles.link} href={href}>
+    <a className="link" href={href}>
       {children}
     </a>
   );

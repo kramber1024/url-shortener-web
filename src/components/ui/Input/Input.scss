@@ -9,16 +9,16 @@ $input-background: colors.$input-background;
 $input-placeholder-font-color: colors.$input-placeholder-font-color;
 $input-focus-outline: colors.$brand;
 $input-focus-box-shadow: box-shadows.$input-focus-box-shadow;
-$label-font-color: colors.$background-font-color;
-$label-error-font-color: colors.$error-font-color;
+$input-label-font-color: colors.$background-font-color;
+$input-label-error-font-color: colors.$error-font-color;
 
-label[for].inputTitle {
+label[for].input-label {
   margin: 20px 0 6px 0;
-  @include mixins.font("content", $label-font-color);
+  @include mixins.font("content", $input-label-font-color);
 
   &.error {
     margin: 6px 0 0 0;
-    color: $label-error-font-color;
+    color: $input-label-error-font-color;
   }
 }
 
