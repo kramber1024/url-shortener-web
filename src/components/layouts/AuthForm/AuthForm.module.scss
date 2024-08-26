@@ -7,9 +7,8 @@ $dialog-form-width: 350px;
 $dialog-border: colors.$border;
 $dialog-border-radius: 30px;
 $dialog-background: colors.$background;
-$dialog-footer-font-color: colors.$background-secondary-font-color;
 
-.auth-form {
+div.authForm {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -29,17 +28,6 @@ $dialog-footer-font-color: colors.$background-secondary-font-color;
 
     @include mixins.responsive(breakpoints.$XS) {
       width: $dialog-form-width;
-    }
-  }
-
-  & + div.auth-form--footer {
-    margin-top: 40px;
-    text-align: center;
-    text-decoration: none;
-    @include mixins.font("content", $dialog-footer-font-color);
-
-    @include mixins.responsive-landscape(breakpoints.$XS) {
-      margin-bottom: 40px;
     }
   }
 
