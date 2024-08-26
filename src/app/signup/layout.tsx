@@ -1,13 +1,15 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
 import { Main } from "@components/layouts/Main";
 import { Navbar } from "@components/layouts/Navbar";
 import { Brand } from "@components/ui/Brand";
-import { Metadata } from "next";
+import "@styles/pages/signup.scss";
 import Image from "next/image";
-import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: `${process.env.NAME ?? ""} - Sign up`,
   description: `Create new ${process.env.NAME ?? ""} account`,
+  title: `${process.env.NAME ?? ""} - Sign up`,
 };
 
 interface SignUpLayoutProps {
@@ -20,10 +22,10 @@ const SignUpLayout = ({ children }: Readonly<SignUpLayoutProps>) => {
       <Navbar>
         <Brand name={process.env.NAME ?? ""}>
           <Image
-            src="/svg/logo.svg"
             alt={`${process.env.NAME ?? ""} brand logo`}
-            width={32}
             height={32}
+            src="/svg/logo.svg"
+            width={32}
           />
         </Brand>
       </Navbar>
