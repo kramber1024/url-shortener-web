@@ -98,7 +98,7 @@ export default tseslint.config(
       "import/no-mutable-exports": "error",
       "import/no-named-default": "error",
       "import/no-self-import": "error",
-      "simple-import-sort/imports": "error",
+      "simple-import-sort/imports": "off",
       "jsdoc/informative-docs": "error",
       "unicorn/no-lonely-if": "error",
       "unicorn/no-typeof-undefined": "error",
