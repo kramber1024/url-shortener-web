@@ -1,5 +1,6 @@
-import { Layout } from "@components/layouts/Layout";
 import type { ReactNode } from "react";
+
+import { Layout } from "@components/layouts/Layout";
 
 interface RootLayoutProps {
   children: ReactNode;
