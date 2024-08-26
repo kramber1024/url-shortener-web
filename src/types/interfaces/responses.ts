@@ -1,10 +1,12 @@
-interface Error {
+interface Message {
   message: string;
+}
+
+interface Error extends Message {
   type: string;
 }
 
-export interface SuccessResponse {
-  message: string;
+export interface SuccessResponse extends Message {
   status: number;
 }
 
