@@ -1,28 +1,8 @@
-import type { ChangeEvent } from "react";
+import type React from "react";
 
-import React from "react";
+import type { InputProps } from "./Input.types";
 
 import "./Input.scss";
-
-type Type = "email" | "password" | "text";
-
-type Autocomplete =
-  | "current-password"
-  | "email"
-  | "family-name"
-  | "given-name"
-  | "new-password"
-  | "off";
-
-interface InputProps {
-  autocomplete?: Autocomplete;
-  name: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-  required?: boolean;
-  title: string;
-  type?: Type;
-}
 
 export const Input = ({
   autocomplete = "off",
