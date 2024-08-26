@@ -2,7 +2,7 @@
 
 $link-color: colors.$brand;
 
-.link {
+a.link {
   transition: opacity 0.5s ease;
   color: $link-color;
   font-size: inherit;
