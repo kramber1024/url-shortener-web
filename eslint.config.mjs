@@ -38,6 +38,7 @@ export default tseslint.config(
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   ...tseslint.configs.strict,
+  perfectionistPlugin.configs["recommended-alphabetical"],
   jsdocPlugin.configs["flat/recommended-typescript-error"],
   {
     languageOptions: {
