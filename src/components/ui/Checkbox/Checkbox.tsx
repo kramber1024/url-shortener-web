@@ -1,14 +1,12 @@
 import type React from "react";
 
-import "./Checkbox.scss";
+import type { CheckboxProps } from "./Checkbox.types";
 
-interface CheckboxProps {
-  name: string;
-  required?: boolean;
-}
+import "./Checkbox.scss";
 
 export const Checkbox = ({
   name,
+  onChange,
   required = false,
 }: CheckboxProps): React.JSX.Element => {
   return (
@@ -16,6 +14,7 @@ export const Checkbox = ({
       className="checkbox"
       id={name}
       name={name}
+      onChange={onChange}
       required={required}
       type="checkbox"
     />
