@@ -1,0 +1,1 @@
+export { toTitle } from "./string";
