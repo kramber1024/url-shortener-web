@@ -6,6 +6,7 @@ import "./Input.scss";
 
 export const Input = ({
   autocomplete = "off",
+  error,
   name,
   onChange,
   placeholder,
@@ -28,6 +29,11 @@ export const Input = ({
         required={required}
         type={type}
       />
+      {error ? (
+        <label className="input-label--error" htmlFor={name}>
+          {error}
+        </label>
+      ) : null}
     </>
   );
 };

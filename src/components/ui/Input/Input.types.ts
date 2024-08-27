@@ -12,6 +12,7 @@ type InputType = "email" | "password" | "text";
 
 export interface InputProps {
   autocomplete?: Autocomplete;
+  error?: string;
   name: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;

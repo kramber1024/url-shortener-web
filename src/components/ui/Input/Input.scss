@@ -16,7 +16,7 @@ label[for].input-label {
   margin: 20px 0 6px 0;
   @include mixins.font("content", $input-label-font-color);
 
-  &.error {
+  &--error {
     margin: 6px 0 0 0;
     color: $input-label-error-font-color;
   }
