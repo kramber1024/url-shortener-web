@@ -10,7 +10,7 @@ import { Checkbox } from "@components/ui/Checkbox";
 import { FormFooter } from "@components/ui/FormFooter";
 import { Input } from "@components/ui/Input";
 import { Link } from "@components/ui/Link";
-import { Constants } from "@constants";
+import { constants } from "@constants";
 import { useState } from "react";
 
 const SignUp = (): React.JSX.Element => {
@@ -33,9 +33,9 @@ const SignUp = (): React.JSX.Element => {
         message: "Please enter first name",
         type: "first_name",
       });
-    } else if (formData.first_name.length < Constants.FIRST_NAME_MIN_LENGTH) {
+    } else if (formData.first_name.length < constants.data.FIRST_NAME_MIN_LENGTH) {
       validationErrors.push({ message: shortErrorMessageTooShort, type: "first_name" });
-    } else if (formData.first_name.length > Constants.FIRST_NAME_MAX_LENGTH) {
+    } else if (formData.first_name.length > constants.data.FIRST_NAME_MAX_LENGTH) {
       validationErrors.push({
         message: shortErrorMessageTooLong,
         type: "first_name",
@@ -45,7 +45,7 @@ const SignUp = (): React.JSX.Element => {
     /* Validate last name */
     if (
       formData.last_name &&
-      formData.last_name.length < Constants.LAST_NAME_MIN_LENGTH
+      formData.last_name.length < constants.data.LAST_NAME_MIN_LENGTH
     ) {
       validationErrors.push({
         message: shortErrorMessageTooShort,
@@ -53,7 +53,7 @@ const SignUp = (): React.JSX.Element => {
       });
     } else if (
       formData.last_name &&
-      formData.last_name.length > Constants.LAST_NAME_MAX_LENGTH
+      formData.last_name.length > constants.data.LAST_NAME_MAX_LENGTH
     ) {
       validationErrors.push({ message: shortErrorMessageTooLong, type: "last_name" });
     }
@@ -64,12 +64,12 @@ const SignUp = (): React.JSX.Element => {
       validationErrors.push({ message: "Please enter email address", type: "email" });
     } else if (
       !emailRegex.test(formData.email) ||
-      formData.email.length < Constants.EMAIL_MIN_LENGTH
+      formData.email.length < constants.data.EMAIL_MIN_LENGTH
     ) {
       validationErrors.push({ message: "Invalid email", type: "email" });
-    } else if (formData.email.length > Constants.EMAIL_MAX_LENGTH) {
+    } else if (formData.email.length > constants.data.EMAIL_MAX_LENGTH) {
       validationErrors.push({
-        message: `Email must be at most ${Constants.EMAIL_MAX_LENGTH.toString()} characters long`,
+        message: `Email must be at most ${constants.data.EMAIL_MAX_LENGTH.toString()} characters long`,
         type: "email",
       });
     }
@@ -80,14 +80,14 @@ const SignUp = (): React.JSX.Element => {
         message: "Please enter password",
         type: "password",
       });
-    } else if (formData.password.length < Constants.PASSWORD_MIN_LENGTH) {
+    } else if (formData.password.length < constants.data.PASSWORD_MIN_LENGTH) {
       validationErrors.push({
-        message: `Password must be at least ${Constants.PASSWORD_MIN_LENGTH.toString()} characters long`,
+        message: `Password must be at least ${constants.data.PASSWORD_MIN_LENGTH.toString()} characters long`,
         type: "password",
       });
-    } else if (formData.password.length > Constants.PASSWORD_MAX_LENGTH) {
+    } else if (formData.password.length > constants.data.PASSWORD_MAX_LENGTH) {
       validationErrors.push({
-        message: `Password must be at most ${Constants.PASSWORD_MIN_LENGTH.toString()} characters long`,
+        message: `Password must be at most ${constants.data.PASSWORD_MIN_LENGTH.toString()} characters long`,
         type: "password",
       });
     }
@@ -122,7 +122,6 @@ const SignUp = (): React.JSX.Element => {
     if (formData.last_name === "") {
       delete formData.last_name;
     }
-    console.log(formData);
   };
 
   return (
