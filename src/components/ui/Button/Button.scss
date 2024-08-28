@@ -7,6 +7,7 @@ $button-background: colors.$brand;
 $button-border: $button-background;
 $button-border-radius: 10px;
 $button-box-shadow: box-shadows.$button-box-shadow;
+$loader-color: colors.$background;
 
 button.button {
   display: flex;
@@ -42,5 +43,24 @@ button.button {
   &:disabled {
     opacity: 0.6;
     cursor: default;
+  }
+
+  & > div.loader {
+    animation: spinnning 1s linear infinite;
+    border: 6px solid $loader-color;
+    border-left-color: transparent;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@keyframes spinnning {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

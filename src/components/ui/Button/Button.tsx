@@ -8,6 +8,7 @@ export const Button = ({
   children,
   disabled = false,
   form,
+  loading = false,
   onClick,
   primary = true,
   type = "button",
@@ -20,7 +21,7 @@ export const Button = ({
       onClick={onClick}
       type={type}
     >
-      {children}
+      {loading ? <div className="loader" /> : children}
     </button>
   );
 };
