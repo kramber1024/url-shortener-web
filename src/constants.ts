@@ -14,6 +14,7 @@ interface Data {
 }
 
 interface Constants {
+  /** App related constants. E.g ` NAME ` for whole app. */
   app: App;
   data: Data;
 }
