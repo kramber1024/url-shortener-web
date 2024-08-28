@@ -1,4 +1,4 @@
-type Type = "button" | "reset" | "submit";
+type ButtonType = "button" | "reset" | "submit";
 
 export interface ButtonProps {
   children: string;
@@ -6,5 +6,5 @@ export interface ButtonProps {
   form: string;
   onClick?: () => void;
   primary?: boolean;
-  type?: Type;
+  type?: ButtonType;
 }
