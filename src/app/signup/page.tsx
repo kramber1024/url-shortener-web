@@ -1,17 +1,17 @@
 "use client";
 
-import type { CreateUser, Error } from "@types";
+import type { ApiResponse, CreateUser, Error } from "@/types";
 import type React from "react";
 import type { ChangeEvent, FormEvent } from "react";
 
-import { AuthForm } from "@components/layouts/AuthForm";
-import { Button } from "@components/ui/Button";
-import { Checkbox } from "@components/ui/Checkbox";
-import { FormFooter } from "@components/ui/FormFooter";
-import { Input } from "@components/ui/Input";
-import { Link } from "@components/ui/Link";
-import { constants } from "@constants";
-import { useState } from "react";
+import { AuthForm } from "@/components/layouts/AuthForm";
+import { Button } from "@/components/ui/Button";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { FormFooter } from "@/components/ui/FormFooter";
+import { Input } from "@/components/ui/Input";
+import { Link } from "@/components/ui/Link";
+import { constants } from "@/constants";
+import { useEffect, useState } from "react";
 
 const SignUp = (): React.JSX.Element => {
   const [formData, setFormData] = useState<CreateUser>({
@@ -21,6 +21,8 @@ const SignUp = (): React.JSX.Element => {
     terms: "off",
   });
   const [errors, setErrors] = useState<Error[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [response, setResponse] = useState<ApiResponse | null>(null);
 
   const validateForm = (): Error[] => {
     const validationErrors: Error[] = [];
@@ -103,14 +105,15 @@ const SignUp = (): React.JSX.Element => {
     return validationErrors;
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     const trimmedValue = name !== "password" ? value.trim() : value;
     setFormData({ ...formData, [name]: trimmedValue });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    setLoading(true);
 
     const errors = validateForm();
     if (errors.length > 0) {
@@ -122,6 +125,37 @@ const SignUp = (): React.JSX.Element => {
     if (formData.last_name === "") {
       delete formData.last_name;
     }
+
+    useEffect(() => {
+      void fetch("/api/auth/login", {
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      })
+        .then((response) => response.json())
+        .then((data: ApiResponse) => {
+          setResponse(data);
+        });
+    });
+    console.log(response);
+    // switch (response.status) {
+    //   case 422:
+    //     console.log("Validation error");
+    //     break;
+
+    //   case 409:
+    //     console.log("conflict");
+    //     break;
+
+    //   case 201:
+    //     console.log("User created");
+    //     break;
+
+    //   default:
+    //     break;
+    // }
   };
 
   return (
@@ -184,7 +218,13 @@ const SignUp = (): React.JSX.Element => {
             You need to accept our terms of use
           </label>
         ) : null}
-        <Button disabled={false} form="auth-form" primary={true} type={"submit"}>
+        <Button
+          disabled={loading}
+          form="auth-form"
+          loading={loading}
+          primary={true}
+          type={"submit"}
+        >
           Create Account
         </Button>
       </AuthForm>

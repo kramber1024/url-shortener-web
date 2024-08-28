@@ -1,6 +1,6 @@
-@use "@styles/abstracts/box-shadows" as box-shadows;
-@use "@styles/abstracts/colors" as colors;
-@use "@styles/abstracts/mixins" as mixins;
+@use "@/styles/abstracts/box-shadows" as box-shadows;
+@use "@/styles/abstracts/colors" as colors;
+@use "@/styles/abstracts/mixins" as mixins;
 
 $button-height: 48px;
 $button-background: colors.$brand;

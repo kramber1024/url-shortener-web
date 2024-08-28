@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import { Main } from "@components/layouts/Main";
-import { Navbar } from "@components/layouts/Navbar";
-import { Brand } from "@components/ui/Brand";
-import { constants } from "@constants";
-import "@styles/pages/signup.scss";
+import { Main } from "@/components/layouts/Main";
+import { Navbar } from "@/components/layouts/Navbar";
+import { Brand } from "@/components/ui/Brand";
+import { constants } from "@/constants";
+import "@/styles/pages/signup.scss";
 import Image from "next/image";
 
 export const metadata: Metadata = {

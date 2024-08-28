@@ -1,6 +1,6 @@
-@use "@styles/abstracts/breakpoints";
-@use "@styles/abstracts/colors";
-@use "@styles/abstracts/mixins";
+@use "@/styles/abstracts/breakpoints";
+@use "@/styles/abstracts/colors";
+@use "@/styles/abstracts/mixins";
 
 $form-footer-font-color: colors.$background-secondary-font-color;
 

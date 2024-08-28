@@ -2,7 +2,7 @@ import type { Viewport } from "next";
 import type React from "react";
 import type { ReactNode } from "react";
 
-import "@styles/global.scss";
+import "@/styles/global.scss";
 import { Inter } from "next/font/google";
 
 import "./Layout.scss";

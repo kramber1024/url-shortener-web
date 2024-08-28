@@ -8,6 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const nextConfig = {
   reactStrictMode: true,
   webpack: (config) => {
+    /** Disable css modules */
     config.module.rules.forEach((rule) => {
       const { oneOf } = rule;
       if (oneOf) {
@@ -17,8 +18,9 @@ const nextConfig = {
         });
       }
     });
-    config.resolve.alias["@styles"] = "src/styles/";
-    config.resolve.alias["@components"] = "src/components/";
+    /** Aliases for sass */
+    config.resolve.alias["@/styles"] = "src/styles/";
+    config.resolve.alias["@/components"] = "src/components/";
 
     return config;
   },
