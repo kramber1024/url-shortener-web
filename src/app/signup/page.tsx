@@ -104,7 +104,9 @@ const SignUp = (): React.JSX.Element => {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    const trimmedValue = name !== "password" ? value.trim() : value;
+    setFormData({ ...formData, [name]: trimmedValue });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -115,8 +117,12 @@ const SignUp = (): React.JSX.Element => {
       setErrors(errors);
       return;
     }
+
     setErrors([]);
-    // Send Data
+    if (formData.last_name === "") {
+      delete formData.last_name;
+    }
+    console.log(formData);
   };
 
   return (
