@@ -13,3 +13,5 @@ export interface SuccessResponse extends Message {
 export interface ErrorResponse extends SuccessResponse {
   errors: Error[];
 }
+
+export type ApiResponse = ErrorResponse | SuccessResponse;
