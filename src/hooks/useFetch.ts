@@ -1,38 +1,29 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 type RestMethod = "DELETE" | "GET" | "POST" | "PUT";
 
-interface HookResponse<T> {
-  loading: boolean;
-  response: null | T;
-}
+const headers: Record<string, string> = { "Content-Type": "application/json" };
 
 export const useFetch = <T extends object>(
-  url: string,
-  body: unknown,
-  method: RestMethod
-): HookResponse<T> => {
+  method: RestMethod,
+  url: string
+): [boolean, null | T, (body: unknown) => void] => {
   const [response, setResponse] = useState<null | T>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const refetch = useCallback(
+    async (body: unknown) => {
       setLoading(true);
-
       const response: Response = await fetch(url, {
         body: JSON.stringify(body),
-        headers: { "Content-Type": "application/json" },
+        headers,
         method,
       });
-      /** Client knows/trusts response from server */
-      const json: T = (await response.json()) as T;
-
-      setResponse(json);
+      setResponse(response.json() as T);
       setLoading(false);
-    };
+    },
+    [method, url]
+  );
 
-    void fetchData();
-  }, [url, body, method]);
-
-  return { loading, response };
+  return [loading, response, refetch];
 };
