@@ -11,7 +11,8 @@ import { FormFooter } from "@/components/ui/FormFooter";
 import { Input } from "@/components/ui/Input";
 import { Link } from "@/components/ui/Link";
 import { constants } from "@/constants";
-import { useEffect, useState } from "react";
+import { useFetch } from "@/hooks";
+import { useState } from "react";
 
 const SignUp = (): React.JSX.Element => {
   const [formData, setFormData] = useState<CreateUser>({
@@ -21,8 +22,10 @@ const SignUp = (): React.JSX.Element => {
     terms: "off",
   });
   const [errors, setErrors] = useState<Error[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [response, setResponse] = useState<ApiResponse | null>(null);
+  const [loading, response, refetch] = useFetch<ApiResponse>(
+    "POST",
+    "/api/auth/register"
+  );
 
   const validateForm = (): Error[] => {
     const validationErrors: Error[] = [];
@@ -106,56 +109,57 @@ const SignUp = (): React.JSX.Element => {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = e.target;
-    const trimmedValue = name !== "password" ? value.trim() : value;
-    setFormData({ ...formData, [name]: trimmedValue });
+    const { checked, name, type, value } = e.target;
+    const processedValue =
+      type === "checkbox"
+        ? checked
+          ? "on"
+          : "off"
+        : name !== "password"
+          ? value.trim()
+          : value;
+    const updatedFormData = { ...formData, [name]: processedValue };
+    if (name === "last_name" && !processedValue) {
+      delete updatedFormData.last_name;
+    }
+    setFormData(updatedFormData);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    setLoading(true);
 
-    const errors = validateForm();
-    if (errors.length > 0) {
-      setErrors(errors);
+    const updatedErrors = validateForm();
+    setErrors(updatedErrors);
+    if (updatedErrors.length > 0) {
       return;
     }
 
-    setErrors([]);
-    if (formData.last_name === "") {
-      delete formData.last_name;
+    refetch(formData);
+    if (response == null) {
+      return;
     }
 
-    useEffect(() => {
-      void fetch("/api/auth/login", {
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      })
-        .then((response) => response.json())
-        .then((data: ApiResponse) => {
-          setResponse(data);
-        });
-    });
-    console.log(response);
-    // switch (response.status) {
-    //   case 422:
-    //     console.log("Validation error");
-    //     break;
+    switch (response.status) {
+      case 422:
+        setErrors([
+          {
+            message: "Invalid email",
+            type: "email",
+          },
+        ]);
+        break;
 
-    //   case 409:
-    //     console.log("conflict");
-    //     break;
+      case 409:
+        console.log("conflict");
+        break;
 
-    //   case 201:
-    //     console.log("User created");
-    //     break;
+      case 201:
+        console.log("User created");
+        break;
 
-    //   default:
-    //     break;
-    // }
+      default:
+        break;
+    }
   };
 
   return (
