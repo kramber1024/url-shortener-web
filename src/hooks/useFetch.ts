@@ -8,10 +8,10 @@ export const useFetch = <T extends object>(
   method: RestMethod,
   url: string
 ): [boolean, null | T, (body: unknown) => void] => {
-  const [response, setResponse] = useState<null | T>(null);
+  const [data, setData] = useState<null | T>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const refetch = useCallback(
+  const fetchData = useCallback(
     async (body: unknown) => {
       setLoading(true);
       const response: Response = await fetch(url, {
@@ -19,11 +19,11 @@ export const useFetch = <T extends object>(
         headers,
         method,
       });
-      setResponse(response.json() as T);
+      setData(response.json() as T);
       setLoading(false);
     },
     [method, url]
   );
 
-  return [loading, response, refetch];
+  return [loading, data, fetchData];
 };
