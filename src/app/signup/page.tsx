@@ -10,9 +10,10 @@ import { Checkbox } from "@/components/ui/Checkbox";
 import { FormFooter } from "@/components/ui/FormFooter";
 import { Input } from "@/components/ui/Input";
 import { Link } from "@/components/ui/Link";
-import { constants } from "@/constants";
 import { useFetch } from "@/hooks";
 import { useState } from "react";
+
+import { validateForm } from "./validation";
 
 const SignUp = (): React.JSX.Element => {
   const [formData, setFormData] = useState<CreateUser>({
@@ -22,91 +23,7 @@ const SignUp = (): React.JSX.Element => {
     terms: "off",
   });
   const [errors, setErrors] = useState<Error[]>([]);
-  const [loading, response, refetch] = useFetch<ApiResponse>(
-    "POST",
-    "/api/auth/register"
-  );
-
-  const validateForm = (): Error[] => {
-    const validationErrors: Error[] = [];
-    const shortErrorMessageTooShort = "Too short";
-    const shortErrorMessageTooLong = "Too long";
-
-    /* Validate first name */
-    if (!formData.first_name) {
-      validationErrors.push({
-        message: "Please enter first name",
-        type: "first_name",
-      });
-    } else if (formData.first_name.length < constants.data.FIRST_NAME_MIN_LENGTH) {
-      validationErrors.push({ message: shortErrorMessageTooShort, type: "first_name" });
-    } else if (formData.first_name.length > constants.data.FIRST_NAME_MAX_LENGTH) {
-      validationErrors.push({
-        message: shortErrorMessageTooLong,
-        type: "first_name",
-      });
-    }
-
-    /* Validate last name */
-    if (
-      formData.last_name &&
-      formData.last_name.length < constants.data.LAST_NAME_MIN_LENGTH
-    ) {
-      validationErrors.push({
-        message: shortErrorMessageTooShort,
-        type: "last_name",
-      });
-    } else if (
-      formData.last_name &&
-      formData.last_name.length > constants.data.LAST_NAME_MAX_LENGTH
-    ) {
-      validationErrors.push({ message: shortErrorMessageTooLong, type: "last_name" });
-    }
-
-    /* Validate email */
-    const emailRegex = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
-    if (!formData.email) {
-      validationErrors.push({ message: "Please enter email address", type: "email" });
-    } else if (
-      !emailRegex.test(formData.email) ||
-      formData.email.length < constants.data.EMAIL_MIN_LENGTH
-    ) {
-      validationErrors.push({ message: "Invalid email", type: "email" });
-    } else if (formData.email.length > constants.data.EMAIL_MAX_LENGTH) {
-      validationErrors.push({
-        message: `Email must be at most ${constants.data.EMAIL_MAX_LENGTH.toString()} characters long`,
-        type: "email",
-      });
-    }
-
-    /* Validate password */
-    if (!formData.password) {
-      validationErrors.push({
-        message: "Please enter password",
-        type: "password",
-      });
-    } else if (formData.password.length < constants.data.PASSWORD_MIN_LENGTH) {
-      validationErrors.push({
-        message: `Password must be at least ${constants.data.PASSWORD_MIN_LENGTH.toString()} characters long`,
-        type: "password",
-      });
-    } else if (formData.password.length > constants.data.PASSWORD_MAX_LENGTH) {
-      validationErrors.push({
-        message: `Password must be at most ${constants.data.PASSWORD_MIN_LENGTH.toString()} characters long`,
-        type: "password",
-      });
-    }
-
-    /* Validate terms */
-    if (formData.terms !== "on") {
-      validationErrors.push({
-        message: "You need to accept our terms of use",
-        type: "terms",
-      });
-    }
-
-    return validationErrors;
-  };
+  const [loading, fetchData] = useFetch<ApiResponse>("POST", "/api/auth/register");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { checked, name, type, value } = e.target;
@@ -128,38 +45,39 @@ const SignUp = (): React.JSX.Element => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
-    const updatedErrors = validateForm();
+    const updatedErrors = validateForm(formData);
     setErrors(updatedErrors);
     if (updatedErrors.length > 0) {
       return;
     }
 
-    refetch(formData);
-    if (response == null) {
-      return;
-    }
+    fetchData(formData, (data) => {
+      if (data == null) {
+        /** Api call failed */
+        return;
+      }
+      switch (data.status) {
+        case 422:
+          setErrors([{ message: "Invalid email", type: "email" }]);
+          break;
 
-    switch (response.status) {
-      case 422:
-        setErrors([
-          {
-            message: "Invalid email",
-            type: "email",
-          },
-        ]);
-        break;
+        case 409:
+          setErrors([
+            {
+              message: "This email address is already used",
+              type: "email",
+            },
+          ]);
+          break;
 
-      case 409:
-        console.log("conflict");
-        break;
+        case 201:
+          // Continue
+          break;
 
-      case 201:
-        console.log("User created");
-        break;
-
-      default:
-        break;
-    }
+        default:
+          break;
+      }
+    });
   };
 
   return (
