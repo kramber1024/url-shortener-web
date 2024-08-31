@@ -56,6 +56,7 @@ export default tseslint.config(
           null: "never",
         },
       ],
+      "@typescript-eslint/no-unnecessary-type-parameters": "off",
       "logical-assignment-operators": "error",
       "no-else-return": "error",
       "no-mixed-operators": "error",
