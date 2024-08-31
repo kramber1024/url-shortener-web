@@ -1,26 +1,23 @@
 import type { CreateUser, Error } from "@/types";
 
 import { constants } from "@/constants";
-
-const shortErrorMessageTooShort = "Too short";
-const shortErrorMessageTooLong = "Too long";
+import {
+  errorMessageInvalid,
+  errorMessageRequired,
+  errorMessageTooLong,
+  errorMessageTooShort,
+} from "@/utils";
 
 export const validateForm = (formData: CreateUser): Error[] => {
   const validationErrors: Error[] = [];
 
   /* Validate first name */
   if (!formData.first_name) {
-    validationErrors.push({
-      message: "Please enter first name",
-      type: "first_name",
-    });
+    validationErrors.push(errorMessageRequired("first_name"));
   } else if (formData.first_name.length < constants.data.FIRST_NAME_MIN_LENGTH) {
-    validationErrors.push({ message: shortErrorMessageTooShort, type: "first_name" });
+    validationErrors.push(errorMessageTooShort("first_name"));
   } else if (formData.first_name.length > constants.data.FIRST_NAME_MAX_LENGTH) {
-    validationErrors.push({
-      message: shortErrorMessageTooLong,
-      type: "first_name",
-    });
+    validationErrors.push(errorMessageTooLong("first_name"));
   }
 
   /* Validate last name */
@@ -28,49 +25,40 @@ export const validateForm = (formData: CreateUser): Error[] => {
     formData.last_name &&
     formData.last_name.length < constants.data.LAST_NAME_MIN_LENGTH
   ) {
-    validationErrors.push({
-      message: shortErrorMessageTooShort,
-      type: "last_name",
-    });
+    validationErrors.push(errorMessageTooShort("last_name"));
   } else if (
     formData.last_name &&
     formData.last_name.length > constants.data.LAST_NAME_MAX_LENGTH
   ) {
-    validationErrors.push({ message: shortErrorMessageTooLong, type: "last_name" });
+    validationErrors.push(errorMessageTooLong("last_name"));
   }
 
   /* Validate email */
   const emailRegex = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   if (!formData.email) {
-    validationErrors.push({ message: "Please enter email address", type: "email" });
+    validationErrors.push(errorMessageRequired("email"));
   } else if (
     !emailRegex.test(formData.email) ||
     formData.email.length < constants.data.EMAIL_MIN_LENGTH
   ) {
-    validationErrors.push({ message: "Invalid email", type: "email" });
+    validationErrors.push(errorMessageInvalid("email"));
   } else if (formData.email.length > constants.data.EMAIL_MAX_LENGTH) {
-    validationErrors.push({
-      message: `Email must be at most ${constants.data.EMAIL_MAX_LENGTH.toString()} characters long`,
-      type: "email",
-    });
+    validationErrors.push(
+      errorMessageTooLong("email", constants.data.EMAIL_MAX_LENGTH)
+    );
   }
 
   /* Validate password */
   if (!formData.password) {
-    validationErrors.push({
-      message: "Please enter password",
-      type: "password",
-    });
+    validationErrors.push(errorMessageRequired("password"));
   } else if (formData.password.length < constants.data.PASSWORD_MIN_LENGTH) {
-    validationErrors.push({
-      message: `Password must be at least ${constants.data.PASSWORD_MIN_LENGTH.toString()} characters long`,
-      type: "password",
-    });
+    validationErrors.push(
+      errorMessageTooShort("password", constants.data.PASSWORD_MIN_LENGTH)
+    );
   } else if (formData.password.length > constants.data.PASSWORD_MAX_LENGTH) {
-    validationErrors.push({
-      message: `Password must be at most ${constants.data.PASSWORD_MIN_LENGTH.toString()} characters long`,
-      type: "password",
-    });
+    validationErrors.push(
+      errorMessageTooLong("password", constants.data.PASSWORD_MAX_LENGTH)
+    );
   }
 
   /* Validate terms */
