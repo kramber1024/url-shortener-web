@@ -5,6 +5,7 @@
   "singleQuote": false,
   "trailingComma": "es5",
   "semi": true,
+  "endOfLine": "lf",
   "bracketSpacing": true,
   "bracketSameLine": false,
   "plugins": ["prettier-plugin-css-order"]
