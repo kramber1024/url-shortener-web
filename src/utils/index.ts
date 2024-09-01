@@ -1,4 +1,5 @@
 export {
+  errorMessageCustom,
   errorMessageInvalid,
   errorMessageRequired,
   errorMessageTooLong,

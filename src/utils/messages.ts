@@ -33,3 +33,7 @@ export const errorMessageTooLong = (field: Field, legth?: number): Error => {
     type: field,
   };
 };
+
+export const errorMessageCustom = (field: Field, message: string): Error => {
+  return { message, type: field };
+};
