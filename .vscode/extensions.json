@@ -1,12 +1,12 @@
 {
-    "recommendations": [
-        "mrmlnc.vscode-scss",
-        "pmneo.tsimporter",
-        "ms-vscode.vscode-typescript-next",
-        "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
-        "christian-kohler.npm-intellisense",
-        "xabikos.javascriptsnippets",
-        "andrewmcgoveran.react-component-generator",
-    ]
+  "recommendations": [
+    "mrmlnc.vscode-scss",
+    "pmneo.tsimporter",
+    "ms-vscode.vscode-typescript-next",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "christian-kohler.npm-intellisense",
+    "xabikos.javascriptsnippets",
+    "andrewmcgoveran.react-component-generator"
+  ]
 }
