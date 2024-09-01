@@ -1,16 +1,12 @@
 {
     "recommendations": [
-        "tamasfe.even-better-toml",
-        "ecmel.vscode-html-css",
-        "xabikos.javascriptsnippets",
-        "ms-vscode.vscode-typescript-next",
-        "ms-python.mypy-type-checker",
-        "christian-kohler.npm-intellisense",
-        "ms-python.vscode-pylance",
-        "ms-python.python",
-        "ms-python.debugpy",
-        "charliermarsh.ruff",
         "mrmlnc.vscode-scss",
-        "deerawan.vscode-faker"
+        "pmneo.tsimporter",
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "christian-kohler.npm-intellisense",
+        "xabikos.javascriptsnippets",
+        "andrewmcgoveran.react-component-generator",
     ]
 }
