@@ -8,6 +8,11 @@ import {
   errorMessageTooShort,
 } from "@/utils";
 
+/**
+ * Client-side validate the sign up form
+ * @param formData - The form data to validate.
+ * @returns An array of errors.
+ */
 export const validateForm = (formData: CreateUser): Error[] => {
   const validationErrors: Error[] = [];
 
