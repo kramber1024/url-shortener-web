@@ -11,6 +11,7 @@ import { FormFooter } from "@/components/ui/FormFooter";
 import { Input } from "@/components/ui/Input";
 import { Link } from "@/components/ui/Link";
 import { useFetch } from "@/hooks";
+import { errorMessageCustom, errorMessageInvalid } from "@/utils";
 import { useState } from "react";
 
 import { validateForm } from "./validation";
@@ -51,22 +52,18 @@ const SignUp = (): React.JSX.Element => {
       return;
     }
 
-    fetchData(formData, (data) => {
+    fetchData(formData, (data: ApiResponse | null) => {
       if (data == null) {
-        /** Api call failed */
         return;
       }
       switch (data.status) {
         case 422:
-          setErrors([{ message: "Invalid email", type: "email" }]);
+          setErrors([errorMessageInvalid("email")]);
           break;
 
         case 409:
           setErrors([
-            {
-              message: "This email address is already used",
-              type: "email",
-            },
+            errorMessageCustom("email", "This email address is already used"),
           ]);
           break;
 
