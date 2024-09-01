@@ -1,14 +1,14 @@
 // @ts-check
 
-import tseslint from "typescript-eslint";
+import { fixupPluginRules } from "@eslint/compat";
 import eslint from "@eslint/js";
-import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
+import importPlugin from "eslint-plugin-import";
 import jsdocPlugin from "eslint-plugin-jsdoc";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
 import reactPlugin from "eslint-plugin-react";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
-import importPlugin from "eslint-plugin-import";
 import unicornPlugin from "eslint-plugin-unicorn";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
@@ -21,7 +21,6 @@ export default tseslint.config(
       ["unicorn"]: unicornPlugin,
     },
   },
-
   {
     ignores: [
       ".next/*",
