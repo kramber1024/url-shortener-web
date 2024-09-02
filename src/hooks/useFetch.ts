@@ -17,17 +17,21 @@ export const useFetch = <T extends object>(
         body: JSON.stringify(body),
         headers,
         method,
-      }).then(
-        async (response: Response): Promise<void> => {
-          const data = (await response.json()) as T;
-          setLoading(false);
-          callback?.(data);
-        },
-        () => {
-          setLoading(false);
+      })
+        .then(async (response: Response): Promise<void> => {
+          try {
+            const data = (await response.json()) as T;
+            callback?.(data);
+          } catch {
+            callback?.(null);
+          }
+        })
+        .catch(() => {
           callback?.(null);
-        }
-      );
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     },
     [method, url]
   );
