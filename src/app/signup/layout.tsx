@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import { Main } from "@/components/layouts/Main";
 import { Navbar } from "@/components/layouts/Navbar";
 import { Brand } from "@/components/ui/Brand";
+import { FormFooter } from "@/components/ui/FormFooter";
+import { Link } from "@/components/ui/Link";
 import { constants } from "@/constants";
 import "@/styles/pages/signup.scss";
 import Image from "next/image";
@@ -30,7 +32,14 @@ const SignUpLayout = ({ children }: Readonly<SignUpLayoutProps>) => {
           />
         </Brand>
       </Navbar>
-      <Main>{children}</Main>
+      <Main>
+        {children}
+        <FormFooter>
+          <p>
+            Already have an account? <Link href="#">Login</Link>
+          </p>
+        </FormFooter>
+      </Main>
     </>
   );
 };
