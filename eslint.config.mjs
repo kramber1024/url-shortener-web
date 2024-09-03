@@ -109,7 +109,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ["src/app/**/{page,layout,not-found,robots}.tsx"],
+    files: ["src/app/**/{page,layout,not-found,robots,sitemap}.tsx"],
     rules: {
       "import/no-default-export": "off",
     },
