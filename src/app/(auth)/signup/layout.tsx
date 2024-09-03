@@ -9,7 +9,7 @@ import "@/styles/pages/signup.scss";
 
 export const metadata: Metadata = {
   description: `Create new ${constants.app.NAME} account`,
-  title: `${constants.app.NAME} - Sign up`,
+  title: `${constants.app.NAME} - Sign Up`,
 };
 
 interface SignUpLayoutProps {
