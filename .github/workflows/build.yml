@@ -1,0 +1,39 @@
+name: build
+
+on:
+  push:
+    paths-ignore:
+      - ".vscode/**"
+      - ".github/**"
+      - ".gitignore"
+      - "LICENSE"
+      - "README.md"
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NAME: ${{ vars.NAME }}
+      SCHEME: ${{ vars.SCHEME }}
+      HOST: ${{ vars.HOST }}
+      PORT: ${{ vars.PORT }}
+      DOMAIN: ${{ vars.DOMAIN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build
+        run: npm run build
