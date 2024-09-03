@@ -1,5 +1,7 @@
 # URL Shortener Web Server
 
+<a href="https://github.com/kramber1024/url-shortener-web/actions/workflows/build.yml" target="_blank"><img src="https://github.com/kramber1024/url-shortener-web/actions/workflows/build.yml/badge.svg" alt="Build"></a>
+
 ## Technology stack and Features
 
 - 🌐 [**Flask**](https://flask.palletsprojects.com/) as static web server.
