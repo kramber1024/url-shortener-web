@@ -20,7 +20,7 @@ const Login = (): React.JSX.Element => {
   });
   const [errors, setErrors] = useState<Error[]>([]);
   const [loading, fetchData] = useFetch<ApiResponse>("POST", "/api/auth/login");
-  BREAKING_CHANGE;
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     const processedValue = name !== "password" ? value.trim() : value;
