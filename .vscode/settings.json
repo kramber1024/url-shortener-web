@@ -8,14 +8,14 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
-  /** ESLint */
+  // ESLint
   "eslint.enable": true,
   "eslint.format.enable": true,
   "eslint.onIgnoredFiles": "off",
   "eslint.useESLintClass": true,
   "eslint.lintTask.enable": true,
   "eslint.run": "onType",
-  /** Prettier */
+  // Prettier
   "prettier.enable": true,
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
@@ -28,23 +28,23 @@
   "prettier.jsxSingleQuote": false,
   "prettier.printWidth": 88,
   "prettier.trailingComma": "es5",
-  /** NPM Intellisense */
+  // NPM Intellisense
   "npm-intellisense.importDeclarationType": "const",
   "npm-intellisense.importQuotes": "\"",
   "npm-intellisense.scanDevDependencies": true,
   "npm-intellisense.showBuildInLibs": true,
-  /** React Components Snippets */
+  // React Components Snippets
   "reactComponentGenerator.createStoriesFile": false,
   "reactComponentGenerator.language": "ts",
   "reactComponentGenerator.stylesLanguage": "scss",
   "reactComponentGenerator.useIndexFile": true,
-  /** SCSS */
+  // SCSS
   "scss.scanImportedFiles": true,
   "scss.showErrors": true,
   "scss.suggestFunctions": true,
   "scss.suggestMixins": true,
   "scss.suggestVariables": true,
-  /** TypeScript Imports */
+  // TypeScript Imports
   "tsimporter.disabled": false,
   "tsimporter.doubleQuotes": true,
   "tsimporter.emitSemicolon": true,
