@@ -10,9 +10,7 @@ $button-box-shadow: box-shadows.$button-box-shadow;
 $loader-color: colors.$background;
 
 button.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   transition:
     opacity 0.5s ease,
     scale 100ms ease;
@@ -23,9 +21,9 @@ button.button {
   border: 1px solid $button-border;
   border-radius: $button-border-radius;
   background-color: $button-background;
-  padding: 14px 18px;
-  width: 100%;
-  height: $button-height;
+  padding: 14px;
+  width: fit-content;
+  height: fit-content;
   @include mixins.font("content", colors.$background);
 
   &.secondary {
