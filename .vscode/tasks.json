@@ -1,4 +1,25 @@
 {
   "version": "2.0.0",
-  "tasks": []
+  "tasks": [
+    {
+      "label": "SCSS Typescript Types",
+      "icon": {
+        "id": "symbol-color"
+      },
+      "type": "shell",
+      "command": "npx typed-scss-modules src",
+      "group": {
+        "kind": "none",
+        "isDefault": true
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
 }
