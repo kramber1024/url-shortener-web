@@ -1,10 +1,8 @@
-@use "@/styles/abstracts/colors" as colors;
-
-$link-color: colors.$brand;
+@use "../../style/colors" as colors;
 
 a.link {
   transition: opacity 0.5s ease;
-  color: $link-color;
+  color: colors.$brand;
   font-size: inherit;
   line-height: inherit;
   font-family: inherit;
