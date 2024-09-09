@@ -1,16 +1,13 @@
 import type React from "react";
-import type { ReactNode } from "react";
 
-import "./Navbar.scss";
+import type { NavbarProps } from "./Navbar.types";
 
-interface NavbarProps {
-  children: ReactNode;
-}
+import { navbar, navbarContent } from "./Navbar.module.scss";
 
 export const Navbar = ({ children }: Readonly<NavbarProps>): React.JSX.Element => {
   return (
-    <nav className="navbar">
-      <div className="navbar-content">{children}</div>
+    <nav className={navbar}>
+      <div className={navbarContent}>{children}</div>
     </nav>
   );
 };
