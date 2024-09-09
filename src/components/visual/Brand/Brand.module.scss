@@ -24,8 +24,12 @@
     }
   }
 
-  & > .brandName {
+  & > span.brandName {
     margin-left: 10px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    letter-spacing: 0.09rem;
     user-select: none;
   }
 }
