@@ -1,0 +1,9 @@
+div.footer {
+  margin-top: 40px;
+  text-align: center;
+  text-decoration: none;
+
+  // @include mixins.responsive-landscape(breakpoints.$XS) {
+  //   margin-bottom: 40px;
+  // }
+}
