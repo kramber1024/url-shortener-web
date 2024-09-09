@@ -1,9 +1,4 @@
-$button-height: 48px;
-$button-background: #1463fa;
-$button-border: $button-background;
-$button-border-radius: 10px;
-$button-box-shadow: 0px 2px 4px rgba($button-background, 0.22);
-$loader-color: #ffffff;
+@use "../../style/colors" as colors;
 
 button.button {
   display: block;
@@ -13,13 +8,13 @@ button.button {
   cursor: pointer;
   box-sizing: border-box;
   outline: none;
-  box-shadow: $button-box-shadow;
-  border: 1px solid $button-border;
-  border-radius: $button-border-radius;
-  background-color: $button-background;
+  box-shadow: 0px 2px 4px rgba(colors.$brand, 0.22);
+  border: 1px solid colors.$brand;
+  border-radius: 10px;
+  background-color: colors.$brand;
   padding: 14px;
-  width: fit-content;
-  height: fit-content;
+  width: 100%;
+  height: 48px;
 
   &:hover {
     opacity: 0.9;
@@ -36,7 +31,7 @@ button.button {
 
   & > div.loader {
     animation: spinnning 1s linear infinite;
-    border: 6px solid $loader-color;
+    border: 6px solid #ffffff;
     border-left-color: transparent;
     border-radius: 50%;
     width: 24px;
