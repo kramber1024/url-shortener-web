@@ -2,26 +2,28 @@ import type React from "react";
 
 import type { InputProps } from "./Input.types";
 
-import "./Input.scss";
+import { input, inputLabel, inputLabelError } from "./Input.module.scss";
 
 export const Input = ({
   autocomplete = "off",
   error,
+  label,
   name,
   onChange,
   placeholder,
   required = false,
-  title,
-  type = "text",
+  type,
 }: Readonly<InputProps>): React.JSX.Element => {
   return (
     <>
-      <label className="input-label" htmlFor={name}>
-        {title}
-      </label>
+      {label ? (
+        <label className={inputLabel} htmlFor={name}>
+          {label}
+        </label>
+      ) : null}
       <input
         autoComplete={autocomplete}
-        className="input"
+        className={input}
         id={name}
         name={name}
         onChange={onChange}
@@ -30,7 +32,7 @@ export const Input = ({
         type={type}
       />
       {error ? (
-        <label className="input-label--error" htmlFor={name}>
+        <label className={inputLabelError} htmlFor={name}>
           {error}
         </label>
       ) : null}
