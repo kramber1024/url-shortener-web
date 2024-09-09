@@ -1,12 +1,17 @@
 import type React from "react";
-import type { ReactNode } from "react";
 
-import "./Main.scss";
+import type { MainProps } from "./Main.types";
 
-interface MainProps {
-  children: ReactNode;
-}
+import { content } from "./Main.module.scss";
 
-export const Main = ({ children }: Readonly<MainProps>): React.JSX.Element => {
-  return <main className="content">{children}</main>;
+export const Main = ({
+  alignItems,
+  children,
+  justifyContent,
+}: Readonly<MainProps>): React.JSX.Element => {
+  return (
+    <main className={content} style={{ alignItems, justifyContent }}>
+      {children}
+    </main>
+  );
 };
