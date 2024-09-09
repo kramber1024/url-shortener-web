@@ -3,5 +3,5 @@ export const config = {
   nameFormat: "camel",
   exportType: "named",
   quoteType: "double",
-  ignore: ["node_modules", "src/styles/**/*.scss"],
+  ignore: ["./node_modules/**/*.scss", "./src/styles/**/*.scss", "./src/global.scss"],
 };
