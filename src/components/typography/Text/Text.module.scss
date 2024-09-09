@@ -1,0 +1,88 @@
+.text {
+  &.size1 {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  &.size2 {
+    font-size: 1.125rem;
+    line-height: 1.4rem;
+  }
+
+  &.size3 {
+    font-size: 1.25rem;
+    line-height: 1.6rem;
+  }
+
+  &.size4 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  &.size5 {
+    font-size: 1.875rem;
+    line-height: 2.4rem;
+  }
+
+  &.size6 {
+    font-size: 2.25rem;
+    line-height: 3rem;
+  }
+
+  &.size7 {
+    font-size: 2.625rem;
+    line-height: 3.3rem;
+  }
+
+  &.size8 {
+    font-size: 3rem;
+    line-height: 3.75rem;
+  }
+
+  &.size9 {
+    font-size: 3.375rem;
+    line-height: 4.2rem;
+  }
+
+  &.size10 {
+    font-size: 4.5rem;
+    line-height: 5.6rem;
+  }
+
+  &.weight100 {
+    font-weight: 100;
+  }
+
+  &.weight200 {
+    font-weight: 200;
+  }
+
+  &.weight300 {
+    font-weight: 300;
+  }
+
+  &.weight400 {
+    font-weight: 400;
+  }
+
+  &.weight500 {
+    font-weight: 500;
+  }
+
+  &.weight600 {
+    font-weight: 600;
+    letter-spacing: 0.09rem;
+  }
+
+  &.weight700 {
+    font-weight: 700;
+  }
+
+  &.weight800 {
+    font-weight: 800;
+  }
+
+  &.weight900 {
+    font-weight: 900;
+  }
+}
