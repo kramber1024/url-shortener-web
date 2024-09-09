@@ -1,6 +1,7 @@
 import type { Viewport } from "next";
 import type { ReactNode } from "react";
 
+import { Fullpage } from "@/components/layout";
 import "@/styles/global.scss";
 import { Inter } from "next/font/google";
 
@@ -21,7 +22,7 @@ const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return (
     <html lang="en">
       <body>
-        <div className={`fullpage ${inter.className}`}>{children}</div>
+        <Fullpage className={inter.className}>{children}</Fullpage>
       </body>
     </html>
   );
