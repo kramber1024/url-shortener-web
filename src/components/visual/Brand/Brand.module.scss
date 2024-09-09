@@ -1,5 +1,4 @@
-@use "@/styles/abstracts/colors" as colors;
-@use "@/styles/abstracts/mixins" as mixins;
+@use "../../style/colors" as colors;
 
 .brand {
   display: flex;
@@ -7,7 +6,7 @@
   align-items: center;
   text-decoration: none;
 
-  & > div.brand-logo {
+  & > div.brandLogo {
     width: 32px;
     height: 32px;
 
@@ -25,9 +24,8 @@
     }
   }
 
-  & > span.brand-name {
+  & > .brandName {
     margin-left: 10px;
     user-select: none;
-    @include mixins.font("brand");
   }
 }
