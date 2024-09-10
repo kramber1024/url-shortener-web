@@ -9,6 +9,7 @@ export const Box = ({
   children,
   display,
   flexDirection,
+  height,
   justifyContent,
   marginBottom,
   marginLeft,
@@ -18,6 +19,7 @@ export const Box = ({
   paddingLeft,
   paddingRight,
   paddingTop,
+  width,
 }: Readonly<BoxProps>): React.JSX.Element => {
   return (
     <div
@@ -26,6 +28,7 @@ export const Box = ({
         alignItems,
         display,
         flexDirection,
+        height,
         justifyContent,
         marginBottom,
         marginLeft,
@@ -35,6 +38,7 @@ export const Box = ({
         paddingLeft,
         paddingRight,
         paddingTop,
+        width,
       }}
     >
       {children}

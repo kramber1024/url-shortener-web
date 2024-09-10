@@ -5,6 +5,7 @@ export interface BoxProps {
   children: ReactNode;
   display?: "block" | "flex";
   flexDirection?: `${"column" | "row"}${"-reverse" | ""}`;
+  height?: string;
   justifyContent?: `${"center" | "flex-end" | "flex-start" | "space-around" | "space-between"}`;
   marginBottom?: string;
   marginLeft?: string;
@@ -14,4 +15,5 @@ export interface BoxProps {
   paddingLeft?: string;
   paddingRight?: string;
   paddingTop?: string;
+  width?: string;
 }
