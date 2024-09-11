@@ -4,11 +4,11 @@ import type { ApiResponse, CreateUser, Error } from "@/types";
 import type React from "react";
 import type { ChangeEvent, FormEvent } from "react";
 
-import { AuthForm } from "@/components/layouts/AuthForm";
-import { Button } from "@/components/ui/Button";
-import { Checkbox } from "@/components/ui/Checkbox";
-import { Input } from "@/components/ui/Input";
-import { Link } from "@/components/ui/Link";
+import { AuthForm, Checkbox, FormInput } from "@/components/form";
+import { Box } from "@/components/layout";
+import { Link } from "@/components/navigation";
+import { Label } from "@/components/typography";
+import { Button } from "@/components/visual";
 import { useFetch } from "@/hooks";
 import { errorMessageCustom, errorMessageInvalid } from "@/utils";
 import { useState } from "react";
@@ -25,8 +25,16 @@ const SignUp = (): React.JSX.Element => {
   const [errors, setErrors] = useState<Error[]>([]);
   const [loading, fetchData] = useFetch<ApiResponse>("POST", "/api/auth/register");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    const { checked, name, type, value } = e.target;
+  /**
+   * Handles every form input change event.
+   *
+   * Updates the form data state with the new value.
+   * Does whitespace trimming for all fields except the password.
+   * Switches the value to "on" or "off" for checkbox.
+   * @param event - React form event
+   */
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    const { checked, name, type, value } = event.target;
     const processedValue =
       type === "checkbox"
         ? checked
@@ -42,8 +50,14 @@ const SignUp = (): React.JSX.Element => {
     setFormData(updatedFormData);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
+  /**
+   * Handles form submission.
+   *
+   * Validates the form data and sends a request to the server.
+   * @param event - React form event
+   */
+  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
 
     const updatedErrors = validateForm(formData);
     setErrors(updatedErrors);
@@ -77,73 +91,59 @@ const SignUp = (): React.JSX.Element => {
   };
 
   return (
-    <AuthForm name="auth-form" onSubmit={handleSubmit} title="Sign up">
-      <div className="splitted-input">
-        <div className="input-container">
-          <Input
-            autocomplete="given-name"
+    <AuthForm name="authForm" onSubmit={handleSubmit} title="Sign up">
+      <Box display="flex" flexDirection="row" width="100%">
+        <Box marginRight="20px">
+          <FormInput
             error={errors.find((error) => error.type === "first_name")?.message}
             name="first_name"
             onChange={handleChange}
-            placeholder="John"
-            required={true}
-            title="First name"
-            type="text"
+            type="firstName"
           />
-        </div>
-        <div className="input-container">
-          <Input
-            autocomplete="family-name"
-            error={errors.find((error) => error.type === "last_name")?.message}
-            name="last_name"
-            onChange={handleChange}
-            placeholder="Smith"
-            required={true}
-            title="Last name"
-            type="text"
-          />
-        </div>
-      </div>
-      <Input
-        autocomplete="email"
+        </Box>
+        <FormInput
+          error={errors.find((error) => error.type === "last_name")?.message}
+          name="last_name"
+          onChange={handleChange}
+          type="lastName"
+        />
+      </Box>
+      <FormInput
         error={errors.find((error) => error.type === "email")?.message}
         name="email"
         onChange={handleChange}
-        placeholder="name@email.tld"
-        required={true}
-        title="Email"
         type="email"
       />
-      <Input
-        autocomplete="new-password"
+      <FormInput
         error={errors.find((error) => error.type === "password")?.message}
         name="password"
         onChange={handleChange}
-        placeholder="••••••••"
-        required={true}
-        title="Password"
-        type="password"
+        type="newPassword"
       />
-      <div className="terms-container">
-        <Checkbox name="terms" onChange={handleChange} required={true} />
-        <label htmlFor="terms">
+      <Box alignItems="center" display="flex" flexDirection="row" marginTop="17px">
+        <Checkbox id="terms" name="terms" onChange={handleChange} required={true} />
+        <Label color={1} htmlFor="terms" size={1} weight={500}>
           I agree to the <Link href="#">terms of use</Link>
-        </label>
-      </div>
+        </Label>
+      </Box>
       {errors.find((error) => error.type === "terms") ? (
-        <label className="input-label--error" htmlFor={"terms"}>
-          You need to accept our terms of use
-        </label>
+        <Box marginTop="3px">
+          <Label color={3} htmlFor="terms">
+            You need to accept our terms of use
+          </Label>
+        </Box>
       ) : null}
-      <Button
-        disabled={loading}
-        form="auth-form"
-        loading={loading}
-        primary={true}
-        type={"submit"}
-      >
-        Create Account
-      </Button>
+      <Box marginTop="15px">
+        <Button
+          disabled={loading}
+          form="authForm"
+          loading={loading}
+          primary={true}
+          type={"submit"}
+        >
+          Create Account
+        </Button>
+      </Box>
     </AuthForm>
   );
 };
