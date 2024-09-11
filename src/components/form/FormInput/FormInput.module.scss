@@ -1,0 +1,12 @@
+div.formInput {
+  display: flex;
+  flex-direction: column;
+
+  & > :first-child {
+    margin: 20px 0 6px 0;
+  }
+
+  & > :last-child:not(input) {
+    margin-top: 8px;
+  }
+}
