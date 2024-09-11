@@ -1,19 +1,5 @@
 @use "../../style/colors" as colors;
 
-label[for].inputLabel {
-  margin: 20px 0 6px 0;
-  color: colors.$background-font-color;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.25rem;
-  letter-spacing: normal;
-
-  &Error {
-    margin: 6px 0 0 0;
-    color: colors.$error;
-  }
-}
-
 input.input {
   transition: border 0.5s ease;
   box-sizing: border-box;

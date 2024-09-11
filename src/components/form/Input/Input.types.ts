@@ -8,10 +8,9 @@ export interface InputProps {
     | "given-name"
     | "new-password"
     | "off";
-  error?: string;
-  label?: string;
-  name: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  id?: string;
+  name?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   required?: boolean;
   type?: "email" | "number" | "password" | "search" | "tel" | "text" | "url";
