@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export interface BoxProps {
   alignItems?: `${"baseline" | "center" | "flex-end" | "flex-start" | "normal" | "stretch"}`;
-  children: ReactNode;
+  children?: ReactNode;
   display?: "block" | "flex";
   flexDirection?: `${"column" | "row"}${"-reverse" | ""}`;
   height?: string;
