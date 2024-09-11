@@ -19,6 +19,7 @@ export const Box = ({
   paddingLeft,
   paddingRight,
   paddingTop,
+  textAlign,
   width,
 }: Readonly<BoxProps>): React.JSX.Element => {
   return (
@@ -38,6 +39,7 @@ export const Box = ({
         paddingLeft,
         paddingRight,
         paddingTop,
+        textAlign,
         width,
       }}
     >

@@ -15,5 +15,6 @@ export interface BoxProps {
   paddingLeft?: string;
   paddingRight?: string;
   paddingTop?: string;
+  textAlign?: "center" | "left" | "right";
   width?: string;
 }
