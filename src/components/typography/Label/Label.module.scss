@@ -1,0 +1,20 @@
+label.text {
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  letter-spacing: normal;
+  text-align: inherit;
+
+  &.color1 {
+    color: #000000;
+  }
+
+  &.color2 {
+    color: #166000;
+  }
+
+  &.color3 {
+    color: #ff2e2f;
+  }
+}
