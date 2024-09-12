@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import type React from "react";
 import type { ReactNode } from "react";
 
-import { FormFooter } from "@/components/ui/FormFooter";
-import { Link } from "@/components/ui/Link";
+import { AuthFormFooter } from "@/components/form";
+import { Link } from "@/components/navigation";
 import { constants } from "@/constants";
-import "@/styles/pages/signup.scss";
 
 export const metadata: Metadata = {
   description: `Create new ${constants.app.NAME} account`,
-  title: `${constants.app.NAME} - Sign Up`,
+  title: `${constants.app.NAME} - Sign up`,
 };
 
 interface SignUpLayoutProps {
@@ -20,11 +19,9 @@ const SignUpLayout = ({ children }: Readonly<SignUpLayoutProps>): React.JSX.Elem
   return (
     <>
       {children}
-      <FormFooter>
-        <p>
-          Already have an account? <Link href="/login">Login</Link>
-        </p>
-      </FormFooter>
+      <AuthFormFooter>
+        Already have an account? <Link href="/login">Login</Link>
+      </AuthFormFooter>
     </>
   );
 };
