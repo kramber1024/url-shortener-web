@@ -4,11 +4,10 @@ import type { ApiResponse, Error, LoginUser } from "@/types";
 import type React from "react";
 import type { ChangeEvent, FormEvent } from "react";
 
-import { AuthForm } from "@/components/layouts/AuthForm";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
+import { AuthForm, FormInput } from "@/components/form";
+import { Box } from "@/components/layout";
+import { Button } from "@/components/visual";
 import { useFetch } from "@/hooks";
-import "@/styles/pages/login.scss";
 import { useState } from "react";
 
 import { validateForm } from "./validation";
@@ -21,14 +20,27 @@ const Login = (): React.JSX.Element => {
   const [errors, setErrors] = useState<Error[]>([]);
   const [loading, fetchData] = useFetch<ApiResponse>("POST", "/api/auth/login");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = e.target;
+  /**
+   * Handles every form input change event.
+   *
+   * Updates the form data state with the new value.
+   * Does whitespace trimming for email input.
+   * @param event - React form event
+   */
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = event.target;
     const processedValue = name !== "password" ? value.trim() : value;
     setFormData({ ...formData, [name]: processedValue });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
+  /**
+   * Handles form submission.
+   *
+   * Validates the form data and sends a request to the server.
+   * @param event - React form event
+   */
+  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
 
     const updatedErrors = validateForm(formData);
     setErrors(updatedErrors);
@@ -44,36 +56,30 @@ const Login = (): React.JSX.Element => {
   };
 
   return (
-    <AuthForm name="auth-form" onSubmit={handleSubmit} title="Sign in">
-      <Input
-        autocomplete="email"
+    <AuthForm name="authForm" onSubmit={handleSubmit} title="Sign in">
+      <FormInput
         error={errors.find((error) => error.type === "email")?.message}
         name="email"
         onChange={handleChange}
-        placeholder="name@email.tld"
-        required={true}
-        title="Email"
         type="email"
       />
-      <Input
-        autocomplete="current-password"
+      <FormInput
         error={errors.find((error) => error.type === "password")?.message}
         name="password"
         onChange={handleChange}
-        placeholder="••••••••"
-        required={true}
-        title="Password"
         type="password"
       />
-      <Button
-        disabled={loading}
-        form="auth-form"
-        loading={loading}
-        primary={true}
-        type={"submit"}
-      >
-        Sign in
-      </Button>
+      <Box marginTop="20px">
+        <Button
+          disabled={loading}
+          form="authForm"
+          loading={loading}
+          primary={true}
+          type={"submit"}
+        >
+          Sign In
+        </Button>
+      </Box>
     </AuthForm>
   );
 };
