@@ -1,6 +1,3 @@
-@use "colors";
-@use "fonts";
-
 @mixin responsive($query) {
   @media screen and (min-width: $query) {
     @content;
