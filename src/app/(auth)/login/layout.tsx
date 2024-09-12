@@ -1,10 +1,10 @@
+import type { Metadata } from "next";
 import type React from "react";
 import type { ReactNode } from "react";
 
-import { FormFooter } from "@/components/ui/FormFooter";
-import { Link } from "@/components/ui/Link";
+import { AuthFormFooter } from "@/components/form";
+import { Link } from "@/components/navigation";
 import { constants } from "@/constants";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   description: `Sign in with ${constants.app.NAME} account"`,
@@ -19,11 +19,9 @@ const LoginLayout = ({ children }: Readonly<LoginLayoutProps>): React.JSX.Elemen
   return (
     <>
       {children}
-      <FormFooter>
-        <p>
-          Don't have an account? <Link href="/signup">Sign up</Link>
-        </p>
-      </FormFooter>
+      <AuthFormFooter>
+        Don't have an account? <Link href="/signup">Sign up</Link>
+      </AuthFormFooter>
     </>
   );
 };
