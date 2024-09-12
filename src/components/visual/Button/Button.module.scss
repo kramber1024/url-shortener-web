@@ -1,7 +1,9 @@
 @use "../../style/colors" as colors;
 
 button.button {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition:
     opacity 0.5s ease,
     scale 100ms ease;
