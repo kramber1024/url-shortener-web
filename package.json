@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "dotenvx run -- next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "dotenvx run -- next build",
+    "start": "dotenvx run -- next start",
     "lint": "npx eslint"
   },
   "dependencies": {
