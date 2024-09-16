@@ -1,10 +1,5 @@
 export { AuthForm } from "./AuthForm";
-export type { AuthFormProps } from "./AuthForm";
 export { AuthFormFooter } from "./AuthFormFooter";
-export type { AuthFormFooterProps } from "./AuthFormFooter";
 export { Checkbox } from "./Checkbox";
-export type { CheckboxProps } from "./Checkbox/Checkbox.types";
 export { Input } from "./Input";
-export type { InputProps } from "./Input";
-export { PasswordInput } from "./InputGroup";
-export type { PasswordInputProps } from "./InputGroup";
+export { EmailInput, PasswordInput } from "./InputGroup";
