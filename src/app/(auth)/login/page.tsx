@@ -4,8 +4,9 @@ import type { ApiResponse, Error, LoginUser } from "@/types";
 import type React from "react";
 import type { ChangeEvent, FormEvent } from "react";
 
-import { AuthForm, FormInput } from "@/components/form";
+import { AuthForm, EmailInput, PasswordInput } from "@/components/form";
 import { Box } from "@/components/layout";
+import { Link } from "@/components/navigation";
 import { Button } from "@/components/visual";
 import { useFetch } from "@/hooks";
 import { useState } from "react";
@@ -57,17 +58,16 @@ const Login = (): React.JSX.Element => {
 
   return (
     <AuthForm name="authForm" onSubmit={handleSubmit} title="Sign in">
-      <FormInput
+      <EmailInput
         error={errors.find((error) => error.type === "email")?.message}
-        name="email"
+        name={"email"}
         onChange={handleChange}
-        type="email"
       />
-      <FormInput
+      <PasswordInput
         error={errors.find((error) => error.type === "password")?.message}
-        name="password"
+        LabelInline={() => <Link href="#">Forgot password?</Link>}
+        name={"password"}
         onChange={handleChange}
-        type="password"
       />
       <Box marginTop="20px">
         <Button

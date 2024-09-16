@@ -4,7 +4,13 @@ import type { ApiResponse, CreateUser, Error } from "@/types";
 import type React from "react";
 import type { ChangeEvent, FormEvent } from "react";
 
-import { AuthForm, Checkbox, FormInput } from "@/components/form";
+import {
+  AuthForm,
+  Checkbox,
+  EmailInput,
+  NameInput,
+  PasswordInput,
+} from "@/components/form";
 import { Box } from "@/components/layout";
 import { Link } from "@/components/navigation";
 import { Label } from "@/components/typography";
@@ -94,27 +100,26 @@ const SignUp = (): React.JSX.Element => {
     <AuthForm name="authForm" onSubmit={handleSubmit} title="Sign up">
       <Box display="flex" flexDirection="row" width="100%">
         <Box marginRight="20px">
-          <FormInput
+          <NameInput
             error={errors.find((error) => error.type === "first_name")?.message}
             name="first_name"
             onChange={handleChange}
             type="firstName"
           />
         </Box>
-        <FormInput
+        <NameInput
           error={errors.find((error) => error.type === "last_name")?.message}
           name="last_name"
           onChange={handleChange}
           type="lastName"
         />
       </Box>
-      <FormInput
+      <EmailInput
         error={errors.find((error) => error.type === "email")?.message}
-        name="email"
+        name={"email"}
         onChange={handleChange}
-        type="email"
       />
-      <FormInput
+      <PasswordInput
         error={errors.find((error) => error.type === "password")?.message}
         name="password"
         onChange={handleChange}
@@ -122,7 +127,7 @@ const SignUp = (): React.JSX.Element => {
       />
       <Box alignItems="center" display="flex" flexDirection="row" marginTop="17px">
         <Checkbox id="terms" name="terms" onChange={handleChange} required={true} />
-        <Label color={1} htmlFor="terms" size={1} weight={500}>
+        <Label htmlFor="terms">
           I agree to the <Link href="#">terms of use</Link>
         </Label>
       </Box>
