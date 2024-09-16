@@ -29,6 +29,7 @@ export default tseslint.config(
       /* Configs */
       "next.config.mjs",
       "eslint.config.mjs",
+      "jest.config.mjs",
       "typed-scss-modules.config.ts",
     ],
   },
