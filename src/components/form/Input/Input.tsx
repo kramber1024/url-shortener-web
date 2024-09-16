@@ -7,6 +7,7 @@ import { input } from "./Input.module.scss";
 export const Input = ({
   autocomplete = "off",
   id,
+  name,
   onChange,
   placeholder,
   required = false,
@@ -17,6 +18,7 @@ export const Input = ({
       autoComplete={autocomplete}
       className={input}
       id={id}
+      name={name}
       onChange={onChange}
       placeholder={placeholder}
       required={required}
