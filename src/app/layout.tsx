@@ -21,8 +21,8 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return (
     <html lang="en">
-      <body>
-        <Fullpage className={inter.className}>{children}</Fullpage>
+      <body className={inter.className}>
+        <Fullpage>{children}</Fullpage>
       </body>
     </html>
   );
