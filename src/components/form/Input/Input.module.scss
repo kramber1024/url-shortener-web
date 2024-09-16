@@ -1,0 +1,41 @@
+@use "../../style/colors" as colors;
+
+input.input {
+  transition: border 0.5s ease;
+  box-sizing: border-box;
+  border: 1px solid colors.$border;
+  border-radius: 10px;
+  background-color: #fafafa;
+  padding: 11px 15px;
+  width: 100%;
+  height: 43px;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  letter-spacing: normal;
+
+  &:focus {
+    outline: none;
+    box-shadow:
+      inset 0px 0px 0px 1px colors.$brand,
+      0px 4px 8px rgba(colors.$brand, 0.15);
+    border: 1px solid colors.$brand;
+  }
+
+  &::placeholder,
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder,
+  &:-ms-input-placeholder,
+  &:-moz-placeholder {
+    opacity: 1;
+    color: #bebebe;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: normal;
+  }
+
+  &[type="password"] {
+    letter-spacing: 0.15rem;
+  }
+}
