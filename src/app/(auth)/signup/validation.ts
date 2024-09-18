@@ -13,7 +13,7 @@ import {
  * @param formData - The form data to validate.
  * @returns An array of errors.
  */
-export function validateForm(formData: CreateUser): Error[] {
+export const validateForm = (formData: CreateUser): Error[] => {
   const validationErrors: Error[] = [];
 
   /* Validate first name */
@@ -73,4 +73,4 @@ export function validateForm(formData: CreateUser): Error[] {
   }
 
   return validationErrors;
-}
+};
