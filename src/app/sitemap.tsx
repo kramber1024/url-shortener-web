@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { constants } from "@/constants";
+import { constant } from "@/constant";
 
 const sitemap = (): MetadataRoute.Sitemap => {
   return [
@@ -8,19 +8,19 @@ const sitemap = (): MetadataRoute.Sitemap => {
       changeFrequency: "yearly",
       lastModified: new Date(),
       priority: 1,
-      url: constants.host.URL,
+      url: constant.host.URL,
     },
     {
       changeFrequency: "yearly",
       lastModified: new Date(),
       priority: 0.8,
-      url: `${constants.host.URL}/signup`,
+      url: `${constant.host.URL}/signup`,
     },
     {
       changeFrequency: "yearly",
       lastModified: new Date(),
       priority: 0.8,
-      url: `${constants.host.URL}/login`,
+      url: `${constant.host.URL}/login`,
     },
   ];
 };

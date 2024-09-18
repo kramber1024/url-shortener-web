@@ -1,6 +1,6 @@
 import type React from "react";
 
-import { constants } from "@/constants";
+import { constant } from "@/constant";
 
 const NotFound = (): React.JSX.Element => {
   return (
@@ -9,7 +9,7 @@ const NotFound = (): React.JSX.Element => {
         No support for metadata in not-found.tsx yet
         https://github.com/vercel/next.js/pull/47328#issuecomment-1488891093
       */}
-      <title>{`${constants.app.NAME} - Not Found`}</title>
+      <title>{`${constant.app.NAME} - Not Found`}</title>
       <p>No</p>
     </>
   );

@@ -1,6 +1,6 @@
 import type { Error, LoginUser } from "@/types";
 
-import { constants } from "@/constants";
+import { constant } from "@/constant";
 import { errorMessageInvalid, errorMessageRequired } from "@/utils";
 
 /**
@@ -17,8 +17,8 @@ export const validateForm = (formData: LoginUser): Error[] => {
     validationErrors.push(errorMessageRequired("email"));
   } else if (
     !emailRegex.test(formData.email) ||
-    formData.email.length < constants.data.EMAIL_MIN_LENGTH ||
-    formData.email.length > constants.data.EMAIL_MAX_LENGTH
+    formData.email.length < constant.data.EMAIL_MIN_LENGTH ||
+    formData.email.length > constant.data.EMAIL_MAX_LENGTH
   ) {
     validationErrors.push(errorMessageInvalid("email"));
   }
@@ -27,8 +27,8 @@ export const validateForm = (formData: LoginUser): Error[] => {
   if (!formData.password) {
     validationErrors.push(errorMessageRequired("password"));
   } else if (
-    formData.password.length < constants.data.PASSWORD_MIN_LENGTH ||
-    formData.password.length > constants.data.PASSWORD_MAX_LENGTH
+    formData.password.length < constant.data.PASSWORD_MIN_LENGTH ||
+    formData.password.length > constant.data.PASSWORD_MAX_LENGTH
   ) {
     validationErrors.push(errorMessageInvalid("password"));
   }

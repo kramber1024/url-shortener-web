@@ -33,14 +33,14 @@ interface Host {
   URL: `${Scheme}://${string}`;
 }
 
-interface Constants {
+interface Constant {
   /** App related constants. E.g ` NAME ` for whole app. */
   app: App;
   data: Data;
   host: Host;
 }
 
-export const constants: Constants = {
+export const constant: Constant = {
   app: {
     NAME: process.env.NAME ?? "APP_NAME",
   },

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { constants } from "@/constants";
+import { constant } from "@/constant";
 
 const robots = (): MetadataRoute.Robots => {
   return {
@@ -9,7 +9,7 @@ const robots = (): MetadataRoute.Robots => {
       disallow: "/api/*",
       userAgent: "*",
     },
-    sitemap: `${constants.host.URL}/sitemap.xml`,
+    sitemap: `${constant.host.URL}/sitemap.xml`,
   };
 };
 

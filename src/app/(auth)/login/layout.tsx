@@ -4,11 +4,11 @@ import type { ReactNode } from "react";
 
 import { AuthFormFooter } from "@/components/form";
 import { Link } from "@/components/navigation";
-import { constants } from "@/constants";
+import { constant } from "@/constant";
 
 export const metadata: Metadata = {
-  description: `Sign in with ${constants.app.NAME} account"`,
-  title: `${constants.app.NAME} - Login`,
+  description: `Sign in with ${constant.app.NAME} account"`,
+  title: `${constant.app.NAME} - Login`,
 };
 
 interface LoginLayoutProps {
