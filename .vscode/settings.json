@@ -2,7 +2,8 @@
   "files.exclude": {
     ".next": true,
     "node_modules": true,
-    "next-env.d.ts": true
+    "next-env.d.ts": true,
+    ".swc": true
   },
   "files.eol": "\n",
   "editor.tabSize": 2,
