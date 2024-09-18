@@ -31,6 +31,6 @@
     "checkJs": true,
     "noEmit": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["src", "cypress"],
   "exclude": ["node_modules"]
 }

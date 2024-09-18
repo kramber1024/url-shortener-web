@@ -6,7 +6,7 @@
     "dev": "dotenvx run -- next dev",
     "build": "dotenvx run -- next build",
     "start": "dotenvx run -- next start",
-    "test": "jest",
+    "test": "cypresss",
     "lint": "npx eslint"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "cypress": "^13.14.2",
     "eslint": "^8",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsdoc": "^50.2.2",
