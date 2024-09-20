@@ -1,0 +1,19 @@
+p.text {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-family: inherit;
+  letter-spacing: normal;
+
+  &.black {
+    color: #000000;
+  }
+
+  &.gray {
+    color: #9a9daa;
+  }
+
+  &.white {
+    color: #ffffff;
+  }
+}
