@@ -4,7 +4,7 @@ import type { ApiResponse, Error, LoginUser } from "@/types";
 import type React from "react";
 import type { ChangeEvent, FormEvent } from "react";
 
-import { AuthForm, EmailInput, PasswordInput } from "@/components/form";
+import { AuthForm, InputGroup } from "@/components/form";
 import { Box } from "@/components/layout";
 import { Link } from "@/components/navigation";
 import { Button } from "@/components/visual";
@@ -57,22 +57,28 @@ const Login = (): React.JSX.Element => {
   };
 
   return (
-    <AuthForm name="authForm" onSubmit={handleSubmit} title="Sign in">
-      <EmailInput
+    <AuthForm name={"authForm"} onSubmit={handleSubmit} title={"Sign in"}>
+      <InputGroup
+        autocomplete={"email"}
         error={errors.find((error) => error.type === "email")?.message}
+        label={"Email"}
         name={"email"}
         onChange={handleChange}
+        placeholder={"name@email.tld"}
       />
-      <PasswordInput
+      <InputGroup
+        autocomplete={"current-password"}
         error={errors.find((error) => error.type === "password")?.message}
+        label={"Password"}
         LabelInline={() => <Link href="#">Forgot password?</Link>}
         name={"password"}
         onChange={handleChange}
+        placeholder={"••••••••"}
       />
-      <Box marginTop="20px">
+      <Box marginTop={"20px"}>
         <Button
           disabled={loading}
-          form="authForm"
+          form={"authForm"}
           loading={loading}
           primary={true}
           type={"submit"}

@@ -4,13 +4,7 @@ import type { ApiResponse, CreateUser, Error } from "@/types";
 import type React from "react";
 import type { ChangeEvent, FormEvent } from "react";
 
-import {
-  AuthForm,
-  Checkbox,
-  EmailInput,
-  NameInput,
-  PasswordInput,
-} from "@/components/form";
+import { AuthForm, Checkbox, InputGroup } from "@/components/form";
 import { Box } from "@/components/layout";
 import { Link } from "@/components/navigation";
 import { Label } from "@/components/typography";
@@ -97,51 +91,65 @@ const SignUp = (): React.JSX.Element => {
   };
 
   return (
-    <AuthForm name="authForm" onSubmit={handleSubmit} title="Sign up">
-      <Box display="flex" flexDirection="row" width="100%">
-        <Box marginRight="20px">
-          <NameInput
+    <AuthForm name={"authForm"} onSubmit={handleSubmit} title={"Sign up"}>
+      <Box display={"flex"} flexDirection={"row"} width={"100%"}>
+        <Box marginRight={"20px"}>
+          <InputGroup
+            autocomplete={"given-name"}
             error={errors.find((error) => error.type === "first_name")?.message}
-            name="first_name"
+            label={"First name"}
+            name={"first_name"}
             onChange={handleChange}
-            type="firstName"
+            placeholder={"John"}
           />
         </Box>
-        <NameInput
+        <InputGroup
+          autocomplete={"family-name"}
           error={errors.find((error) => error.type === "last_name")?.message}
-          name="last_name"
+          label={"Last name"}
+          name={"last_name"}
           onChange={handleChange}
-          type="lastName"
+          placeholder={"Smith"}
         />
       </Box>
-      <EmailInput
+      <InputGroup
+        autocomplete={"email"}
         error={errors.find((error) => error.type === "email")?.message}
+        label={"Email"}
         name={"email"}
         onChange={handleChange}
+        placeholder={"name@email.tld"}
       />
-      <PasswordInput
+      <InputGroup
+        autocomplete={"new-password"}
         error={errors.find((error) => error.type === "password")?.message}
-        name="password"
+        label={"Password"}
+        name={"password"}
         onChange={handleChange}
-        type="newPassword"
+        placeholder={"••••••••"}
       />
-      <Box alignItems="center" display="flex" flexDirection="row" marginTop="17px">
-        <Checkbox id="terms" name="terms" onChange={handleChange} required={true} />
-        <Label htmlFor="terms">
-          I agree to the <Link href="#">terms of use</Link>
+      <Box
+        alignItems={"center"}
+        display={"flex"}
+        flexDirection={"row"}
+        marginTop={"17px"}
+      >
+        <Checkbox id={"terms"} name={"terms"} onChange={handleChange} required={true} />
+        <Label htmlFor={"terms"}>
+          I agree to the <Link href={"#"}>terms of use</Link>
         </Label>
       </Box>
       {errors.find((error) => error.type === "terms") ? (
-        <Box marginTop="3px">
-          <Label color={3} htmlFor="terms">
+        <Box marginTop={"3px"}>
+          <Label color={2} htmlFor={"terms"}>
             You need to accept our terms of use
           </Label>
         </Box>
       ) : null}
-      <Box marginTop="15px">
+      <Box marginTop={"15px"}>
         <Button
           disabled={loading}
-          form="authForm"
+          form={"authForm"}
           loading={loading}
           primary={true}
           type={"submit"}

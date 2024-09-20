@@ -1,42 +1,48 @@
 import type React from "react";
 
-import type { PasswordInputProps } from "./PasswordInput.types";
+import type { InputGroupProps } from "./InputGroup.types";
 
 import { Box } from "../../layout";
 import { Label } from "../../typography";
 import { Input } from "../Input";
 import { inputGroup } from "./InputGroup.module.scss";
 
-export const PasswordInput = ({
+export const InputGroup = ({
+  autocomplete,
   error,
+  label,
   LabelInline,
   name,
   onChange,
-  type = "password",
-}: Readonly<PasswordInputProps>): React.JSX.Element => {
-  const inputLabel = "Password";
-
+  placeholder,
+}: Readonly<InputGroupProps>): React.JSX.Element => {
   return (
     <div className={inputGroup}>
       {LabelInline ? (
         <Box display="flex" flexDirection="row" justifyContent="space-between">
-          <Label htmlFor={name}>{inputLabel}</Label>
+          <Label htmlFor={name}>{label}</Label>
           <LabelInline />
         </Box>
       ) : (
-        <Label htmlFor={name}>{inputLabel}</Label>
+        <Label htmlFor={name}>{label}</Label>
       )}
       <Input
-        autocomplete={type === "newPassword" ? "new-password" : "current-password"}
+        autocomplete={autocomplete}
         id={name}
         name={name}
         onChange={onChange}
-        placeholder={"••••••••"}
+        placeholder={placeholder}
         required={true}
-        type={"password"}
+        type={
+          autocomplete === "email"
+            ? "email"
+            : autocomplete === "current-password" || autocomplete === "new-password"
+              ? "password"
+              : "text"
+        }
       />
       {error ? (
-        <Label color={3} htmlFor={name}>
+        <Label color={2} htmlFor={name}>
           {error}
         </Label>
       ) : null}

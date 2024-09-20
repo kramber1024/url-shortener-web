@@ -23,7 +23,7 @@ export const EmailInput = ({
         type={"email"}
       />
       {error ? (
-        <Label color={3} htmlFor={name}>
+        <Label color={2} htmlFor={name}>
           {error}
         </Label>
       ) : null}
