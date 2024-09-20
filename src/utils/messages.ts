@@ -8,32 +8,60 @@ const fieldMap: Record<Field, string> = {
   password: "Password",
 };
 
+/**
+ * Generate error message for empty required field.
+ * @param field - Field to generate error message for.
+ * @returns Error object with message.
+ */
 export const errorMessageRequired = (field: Field): Error => {
   return { message: `Please enter ${fieldMap[field].toLowerCase()}`, type: field };
 };
 
+/**
+ * Generate error message for invalid field data.
+ * @param field - Field to generate error message for.
+ * @returns Error object with message.
+ */
 export const errorMessageInvalid = (field: Field): Error => {
   return { message: `Invalid ${fieldMap[field].toLowerCase()}`, type: field };
 };
 
-export const errorMessageTooShort = (field: Field, legth?: number): Error => {
+/**
+ * Generate error message for field data that is too short.
+ * @param field - Field to generate error message for.
+ * @param length - Minimum length required. If not provided, default short message is used.
+ * @returns Error object with message.
+ */
+export const errorMessageTooShort = (field: Field, length?: number): Error => {
   return {
-    message: legth
-      ? `${fieldMap[field]} must be at least ${legth.toString()} characters long`
+    message: length
+      ? `${fieldMap[field]} must be at least ${length.toString()} characters long`
       : "Too short",
     type: field,
   };
 };
 
-export const errorMessageTooLong = (field: Field, legth?: number): Error => {
+/**
+ * Generate error message for field data that is too long.
+ * @param field - Field to generate error message for.
+ * @param length - Maximum length required. If not provided, default short message is used.
+ * @returns Error object with message.
+ */
+export const errorMessageTooLong = (field: Field, length?: number): Error => {
   return {
-    message: legth
-      ? `${fieldMap[field]} must be at most ${legth.toString()} characters long`
+    message: length
+      ? `${fieldMap[field]} must be at most ${length.toString()} characters long`
       : "Too long",
     type: field,
   };
 };
 
+/**
+ * Generate custom error message.
+ * @param field - Field to generate error message for.
+ * @param message - Custom message to display.
+ * @returns Error object with message.
+ */
 export const errorMessageCustom = (field: Field, message: string): Error => {
   return { message, type: field };
 };
