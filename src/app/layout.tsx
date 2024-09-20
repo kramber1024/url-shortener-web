@@ -2,7 +2,7 @@ import type { Viewport } from "next";
 import type { ReactNode } from "react";
 
 import { Fullpage } from "@/components/layout";
-import "@/styles/global.scss";
+import "@/styles/global.css";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], weight: ["400", "500", "600"] });
