@@ -9,68 +9,123 @@ import {
 } from "@/utils";
 
 /**
- * Client-side validate the sign up form
- * @param formData - The form data to validate.
+ * Validate the first name by checking if it is empty, too short, or too long.
+ * @param firstName - The first name to validate.
+ * @param minLength - The minimum length of the first name.
+ * @param maxLength - The maximum length of the first name.
  * @returns An array of errors.
  */
-export const validateForm = (formData: CreateUser): Error[] => {
+export const validateFirstName = (
+  firstName: string,
+  minLength: number,
+  maxLength: number
+): Error[] => {
   const validationErrors: Error[] = [];
-
-  /* Validate first name */
-  if (!formData.first_name) {
+  if (!firstName) {
     validationErrors.push(errorMessageRequired("first_name"));
-  } else if (formData.first_name.length < constant.data.FIRST_NAME_MIN_LENGTH) {
+  } else if (firstName.length < minLength) {
     validationErrors.push(errorMessageTooShort("first_name"));
-  } else if (formData.first_name.length > constant.data.FIRST_NAME_MAX_LENGTH) {
+  } else if (firstName.length > maxLength) {
     validationErrors.push(errorMessageTooLong("first_name"));
   }
+  return validationErrors;
+};
 
-  /* Validate last name */
-  if (
-    formData.last_name &&
-    formData.last_name.length < constant.data.LAST_NAME_MIN_LENGTH
-  ) {
-    validationErrors.push(errorMessageTooShort("last_name"));
-  } else if (
-    formData.last_name &&
-    formData.last_name.length > constant.data.LAST_NAME_MAX_LENGTH
-  ) {
-    validationErrors.push(errorMessageTooLong("last_name"));
+/**
+ * Validate the last name by checking if it is empty, too short, or too long.
+ * @param lastName - The last name to validate.
+ * @param minLength - The minimum length of the last name.
+ * @param maxLength - The maximum length of the last name.
+ * @returns An array of errors.
+ */
+export const validateLastName = (
+  lastName: string | undefined,
+  minLength: number,
+  maxLength: number
+): Error[] => {
+  const validationErrors: Error[] = [];
+  if (lastName) {
+    if (lastName.length < minLength) {
+      validationErrors.push(errorMessageTooShort("last_name"));
+    }
+    if (lastName.length > maxLength) {
+      validationErrors.push(errorMessageTooLong("last_name"));
+    }
   }
+  return validationErrors;
+};
 
-  /* Validate email */
+export const validateEmail = (
+  email: string,
+  minLength: number,
+  maxLength: number
+): Error[] => {
+  const validationErrors: Error[] = [];
   const emailRegex = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
-  if (!formData.email) {
+  if (!email) {
     validationErrors.push(errorMessageRequired("email"));
-  } else if (
-    !emailRegex.test(formData.email) ||
-    formData.email.length < constant.data.EMAIL_MIN_LENGTH
-  ) {
+  } else if (!emailRegex.test(email) || email.length < minLength) {
     validationErrors.push(errorMessageInvalid("email"));
-  } else if (formData.email.length > constant.data.EMAIL_MAX_LENGTH) {
-    validationErrors.push(errorMessageTooLong("email", constant.data.EMAIL_MAX_LENGTH));
+  } else if (email.length > maxLength) {
+    validationErrors.push(errorMessageTooLong("email", maxLength));
   }
+  return validationErrors;
+};
 
-  /* Validate password */
-  if (!formData.password) {
+export const validatePassword = (
+  password: string,
+  minLength: number,
+  maxLength: number
+): Error[] => {
+  const validationErrors: Error[] = [];
+  if (!password) {
     validationErrors.push(errorMessageRequired("password"));
-  } else if (formData.password.length < constant.data.PASSWORD_MIN_LENGTH) {
-    validationErrors.push(
-      errorMessageTooShort("password", constant.data.PASSWORD_MIN_LENGTH)
-    );
-  } else if (formData.password.length > constant.data.PASSWORD_MAX_LENGTH) {
-    validationErrors.push(
-      errorMessageTooLong("password", constant.data.PASSWORD_MAX_LENGTH)
-    );
+  } else if (password.length < minLength) {
+    validationErrors.push(errorMessageTooShort("password", minLength));
+  } else if (password.length > maxLength) {
+    validationErrors.push(errorMessageTooLong("password", maxLength));
   }
+  return validationErrors;
+};
 
-  /* Validate terms */
-  if (formData.terms !== "on") {
+export const validateTerms = (terms: string): Error[] => {
+  const validationErrors: Error[] = [];
+  if (terms !== "on") {
     validationErrors.push({
       message: "You need to accept our terms of use",
       type: "terms",
     });
   }
-
   return validationErrors;
+};
+
+/**
+ * Client-side validate the sign up form
+ * @param formData - The form data to validate.
+ * @returns An array of errors.
+ */
+export const validateForm = (formData: CreateUser): Error[] => {
+  return [
+    ...validateFirstName(
+      formData.first_name,
+      constant.data.FIRST_NAME_MIN_LENGTH,
+      constant.data.FIRST_NAME_MAX_LENGTH
+    ),
+    ...validateLastName(
+      formData.last_name,
+      constant.data.LAST_NAME_MIN_LENGTH,
+      constant.data.LAST_NAME_MAX_LENGTH
+    ),
+    ...validateEmail(
+      formData.email,
+      constant.data.EMAIL_MIN_LENGTH,
+      constant.data.EMAIL_MAX_LENGTH
+    ),
+    ...validatePassword(
+      formData.password,
+      constant.data.PASSWORD_MIN_LENGTH,
+      constant.data.PASSWORD_MAX_LENGTH
+    ),
+    ...validateTerms(formData.terms),
+  ];
 };
