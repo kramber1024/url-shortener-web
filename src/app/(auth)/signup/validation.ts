@@ -55,6 +55,13 @@ export const validateLastName = (
   return validationErrors;
 };
 
+/**
+ * Validate the email by checking if it is empty, too short, too long, or invalid.
+ * @param email - The email to validate.
+ * @param minLength - The minimum length of the email.
+ * @param maxLength - The maximum length of the email.
+ * @returns An array of errors.
+ */
 export const validateEmail = (
   email: string,
   minLength: number,
@@ -72,6 +79,13 @@ export const validateEmail = (
   return validationErrors;
 };
 
+/**
+ * Validate the password by checking if it is empty, too short, or too long.
+ * @param password - The password to validate.
+ * @param minLength - The minimum length of the password.
+ * @param maxLength - The maximum length of the password.
+ * @returns An array of errors.
+ */
 export const validatePassword = (
   password: string,
   minLength: number,
@@ -88,6 +102,11 @@ export const validatePassword = (
   return validationErrors;
 };
 
+/**
+ * Validate the terms by checking if it is not checked.
+ * @param terms - The terms to validate.
+ * @returns An array of errors.
+ */
 export const validateTerms = (terms: string): Error[] => {
   const validationErrors: Error[] = [];
   if (terms !== "on") {
