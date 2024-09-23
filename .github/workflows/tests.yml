@@ -1,4 +1,4 @@
-name: build
+name: tests
 
 on:
   push:
@@ -21,7 +21,7 @@ on:
       - main
 
 jobs:
-  build:
+  tests:
     runs-on: ubuntu-latest
     env:
       NAME: ${{ vars.NAME }}
@@ -41,5 +41,5 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Build
-        run: npm run build
+      - name: Run tests
+        run: npm run tests:unit
