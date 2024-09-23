@@ -13,7 +13,7 @@ import { useFetch } from "@/hooks";
 import { errorMessageCustom, errorMessageInvalid } from "@/utils";
 import { useState } from "react";
 
-import { validateForm } from "./validation";
+import { validateSignUpFom } from "./validation";
 
 const SignUp = (): React.JSX.Element => {
   const [formData, setFormData] = useState<CreateUser>({
@@ -59,7 +59,7 @@ const SignUp = (): React.JSX.Element => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
-    const updatedErrors = validateForm(formData);
+    const updatedErrors = validateSignUpFom(formData);
     setErrors(updatedErrors);
     if (updatedErrors.length > 0) {
       return;

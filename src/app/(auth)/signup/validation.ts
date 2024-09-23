@@ -123,7 +123,7 @@ export const validateTerms = (terms: string): Error[] => {
  * @param formData - The form data to validate.
  * @returns An array of errors.
  */
-export const validateForm = (formData: CreateUser): Error[] => {
+export const validateSignUpFom = (formData: CreateUser): Error[] => {
   return [
     ...validateFirstName(
       formData.first_name,
