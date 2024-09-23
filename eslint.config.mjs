@@ -30,6 +30,7 @@ export default tseslint.config(
       "next.config.mjs",
       "eslint.config.mjs",
       "cypress.config.ts",
+      "jest.config.ts",
       "typed-scss-modules.config.ts",
     ],
   },

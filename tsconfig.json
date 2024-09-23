@@ -3,11 +3,7 @@
     "incremental": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "moduleDetection": "force",
     "module": "esnext",
@@ -18,16 +14,11 @@
         "name": "next"
       }
     ],
-    "types": [
-      "cypress",
-      "node"
-    ],
+    "types": ["cypress", "node", "jest"],
     /* Imports */
     "baseUrl": "./src",
     "paths": {
-      "@/*": [
-        "*"
-      ]
+      "@/*": ["*"]
     },
     /* Strictness */
     "strict": true,
@@ -40,12 +31,6 @@
     "checkJs": true,
     "noEmit": true
   },
-  "include": [
-    "src",
-    "cypress",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "cypress", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
