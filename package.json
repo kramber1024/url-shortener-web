@@ -7,8 +7,8 @@
     "build": "dotenvx run -- next build",
     "start": "dotenvx run -- next start",
     "e2e": "npx cypress open",
-    "test:unit": "jest",
-    "test:unit:cov": "jest --coverage",
+    "tests:unit": "jest",
+    "tests:unit:cov": "jest --coverage",
     "lint": "npx eslint"
   },
   "dependencies": {
