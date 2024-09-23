@@ -3,7 +3,8 @@
     ".next": true,
     "node_modules": true,
     "next-env.d.ts": true,
-    ".swc": true
+    ".swc": true,
+    "coverage": true
   },
   "files.eol": "\n",
   "editor.tabSize": 2,
