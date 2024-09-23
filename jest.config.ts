@@ -7,6 +7,7 @@ const createJestConfig = nextJest({
 
 const config: Config = {
   coverageProvider: "v8",
+  collectCoverageFrom: ["src/**/*.{ts,tsx}"],
 };
 
 export default createJestConfig(config);
