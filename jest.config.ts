@@ -10,8 +10,11 @@ const config: Config = {
   collectCoverageFrom: ["src/**/*.{ts,tsx}"],
   coveragePathIgnorePatterns: [
     "src/.*\\.module\\.(?:css|scss)\\.d\\.ts",
+    "src/.*\\.types\\.ts",
+    "src/constant\\.ts",
     "src/.*index\\.ts",
     "src/.*\\.cy.(?:ts|tsx)",
+    "src/types/.*",
     "cypress/.*",
   ],
 };
