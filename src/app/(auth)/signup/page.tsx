@@ -10,7 +10,7 @@ import { Link } from "@/components/navigation";
 import { Label } from "@/components/typography";
 import { Button } from "@/components/visual";
 import { useFetch } from "@/hooks";
-import { errorMessageCustom, errorMessageInvalid } from "@/utils";
+import { errorCustom, errorInvalid } from "@/utils";
 import { useState } from "react";
 
 import { validateSignUpFom } from "./validation";
@@ -71,13 +71,11 @@ const SignUp = (): React.JSX.Element => {
       }
       switch (data.status) {
         case 422:
-          setErrors([errorMessageInvalid("email")]);
+          setErrors([errorInvalid("email")]);
           break;
 
         case 409:
-          setErrors([
-            errorMessageCustom("email", "This email address is already used"),
-          ]);
+          setErrors([errorCustom("email", "This email address is already in use")]);
           break;
 
         case 201:

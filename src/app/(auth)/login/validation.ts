@@ -1,7 +1,7 @@
 import type { Error, LoginUser } from "@/types";
 
 import { constant } from "@/constant";
-import { errorMessageInvalid, errorMessageRequired } from "@/utils";
+import { errorInvalid, errorRequired } from "@/utils";
 
 /**
  * Client-side validate the login form
@@ -14,23 +14,23 @@ export const validateForm = (formData: LoginUser): Error[] => {
   /* Validate email */
   const emailRegex = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   if (!formData.email) {
-    validationErrors.push(errorMessageRequired("email"));
+    validationErrors.push(errorRequired("email"));
   } else if (
     !emailRegex.test(formData.email) ||
     formData.email.length < constant.data.EMAIL_MIN_LENGTH ||
     formData.email.length > constant.data.EMAIL_MAX_LENGTH
   ) {
-    validationErrors.push(errorMessageInvalid("email"));
+    validationErrors.push(errorInvalid("email"));
   }
 
   /* Validate password */
   if (!formData.password) {
-    validationErrors.push(errorMessageRequired("password"));
+    validationErrors.push(errorRequired("password"));
   } else if (
     formData.password.length < constant.data.PASSWORD_MIN_LENGTH ||
     formData.password.length > constant.data.PASSWORD_MAX_LENGTH
   ) {
-    validationErrors.push(errorMessageInvalid("password"));
+    validationErrors.push(errorInvalid("password"));
   }
 
   return validationErrors;

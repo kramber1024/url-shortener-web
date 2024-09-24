@@ -13,7 +13,7 @@ const fieldMap: Record<Field, string> = {
  * @param field - Field to generate error message for.
  * @returns Error object with message.
  */
-export const errorMessageRequired = (field: Field): Error => {
+export const errorRequired = (field: Field): Error => {
   return { message: `Please enter ${fieldMap[field].toLowerCase()}`, type: field };
 };
 
@@ -22,7 +22,7 @@ export const errorMessageRequired = (field: Field): Error => {
  * @param field - Field to generate error message for.
  * @returns Error object with message.
  */
-export const errorMessageInvalid = (field: Field): Error => {
+export const errorInvalid = (field: Field): Error => {
   return { message: `Invalid ${fieldMap[field].toLowerCase()}`, type: field };
 };
 
@@ -32,7 +32,7 @@ export const errorMessageInvalid = (field: Field): Error => {
  * @param length - Minimum length required. If not provided, default short message is used.
  * @returns Error object with message.
  */
-export const errorMessageTooShort = (field: Field, length?: number): Error => {
+export const errorTooShort = (field: Field, length?: number): Error => {
   return {
     message: length
       ? `${fieldMap[field]} must be at least ${length.toString()} characters long`
@@ -47,7 +47,7 @@ export const errorMessageTooShort = (field: Field, length?: number): Error => {
  * @param length - Maximum length required. If not provided, default short message is used.
  * @returns Error object with message.
  */
-export const errorMessageTooLong = (field: Field, length?: number): Error => {
+export const errorTooLong = (field: Field, length?: number): Error => {
   return {
     message: length
       ? `${fieldMap[field]} must be at most ${length.toString()} characters long`
@@ -62,6 +62,6 @@ export const errorMessageTooLong = (field: Field, length?: number): Error => {
  * @param message - Custom message to display.
  * @returns Error object with message.
  */
-export const errorMessageCustom = (field: Field, message: string): Error => {
+export const errorCustom = (field: Field, message: string): Error => {
   return { message, type: field };
 };

@@ -1,12 +1,7 @@
 import type { CreateUser, Error } from "@/types";
 
 import { constant } from "@/constant";
-import {
-  errorMessageInvalid,
-  errorMessageRequired,
-  errorMessageTooLong,
-  errorMessageTooShort,
-} from "@/utils";
+import { errorInvalid, errorRequired, errorTooLong, errorTooShort } from "@/utils";
 
 /**
  * Validate the first name by checking if it is empty, too short, or too long.
@@ -22,11 +17,11 @@ export const validateFirstName = (
 ): Error[] => {
   const validationErrors: Error[] = [];
   if (!firstName) {
-    validationErrors.push(errorMessageRequired("first_name"));
+    validationErrors.push(errorRequired("first_name"));
   } else if (firstName.length < minLength) {
-    validationErrors.push(errorMessageTooShort("first_name"));
+    validationErrors.push(errorTooShort("first_name"));
   } else if (firstName.length > maxLength) {
-    validationErrors.push(errorMessageTooLong("first_name"));
+    validationErrors.push(errorTooLong("first_name"));
   }
   return validationErrors;
 };
@@ -46,10 +41,10 @@ export const validateLastName = (
   const validationErrors: Error[] = [];
   if (lastName) {
     if (lastName.length < minLength) {
-      validationErrors.push(errorMessageTooShort("last_name"));
+      validationErrors.push(errorTooShort("last_name"));
     }
     if (lastName.length > maxLength) {
-      validationErrors.push(errorMessageTooLong("last_name"));
+      validationErrors.push(errorTooLong("last_name"));
     }
   }
   return validationErrors;
@@ -70,11 +65,11 @@ export const validateEmail = (
   const validationErrors: Error[] = [];
   const emailRegex = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   if (!email) {
-    validationErrors.push(errorMessageRequired("email"));
+    validationErrors.push(errorRequired("email"));
   } else if (!emailRegex.test(email) || email.length < minLength) {
-    validationErrors.push(errorMessageInvalid("email"));
+    validationErrors.push(errorInvalid("email"));
   } else if (email.length > maxLength) {
-    validationErrors.push(errorMessageTooLong("email", maxLength));
+    validationErrors.push(errorTooLong("email", maxLength));
   }
   return validationErrors;
 };
@@ -93,11 +88,11 @@ export const validatePassword = (
 ): Error[] => {
   const validationErrors: Error[] = [];
   if (!password) {
-    validationErrors.push(errorMessageRequired("password"));
+    validationErrors.push(errorRequired("password"));
   } else if (password.length < minLength) {
-    validationErrors.push(errorMessageTooShort("password", minLength));
+    validationErrors.push(errorTooShort("password", minLength));
   } else if (password.length > maxLength) {
-    validationErrors.push(errorMessageTooLong("password", maxLength));
+    validationErrors.push(errorTooLong("password", maxLength));
   }
   return validationErrors;
 };

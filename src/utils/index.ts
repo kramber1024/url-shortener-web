@@ -1,7 +1,7 @@
 export {
-  errorMessageCustom,
-  errorMessageInvalid,
-  errorMessageRequired,
-  errorMessageTooLong,
-  errorMessageTooShort,
+  errorCustom,
+  errorInvalid,
+  errorRequired,
+  errorTooLong,
+  errorTooShort,
 } from "./messages";
