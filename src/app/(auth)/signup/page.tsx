@@ -147,13 +147,7 @@ const SignUp = (): React.JSX.Element => {
         </Box>
       ) : null}
       <Box marginTop={"15px"}>
-        <Button
-          disabled={loading}
-          form={"authForm"}
-          loading={loading}
-          primary={true}
-          type={"submit"}
-        >
+        <Button disabled={loading} loading={loading} type={"submit"}>
           Create Account
         </Button>
       </Box>

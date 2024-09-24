@@ -4,6 +4,5 @@ export interface ButtonProps {
   form?: string;
   loading?: boolean;
   onClick?: () => void;
-  primary?: boolean;
   type?: "button" | "reset" | "submit";
 }

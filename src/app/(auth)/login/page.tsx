@@ -76,13 +76,7 @@ const Login = (): React.JSX.Element => {
         placeholder={"••••••••"}
       />
       <Box marginTop={"20px"}>
-        <Button
-          disabled={loading}
-          form={"authForm"}
-          loading={loading}
-          primary={true}
-          type={"submit"}
-        >
+        <Button disabled={loading} loading={loading} type={"submit"}>
           Sign In
         </Button>
       </Box>
