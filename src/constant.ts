@@ -1,13 +1,10 @@
 type Scheme = "http" | "https";
 
-const parseScheme = (scheme: string | undefined): Scheme => {
-  if (!scheme || (scheme !== "http" && scheme !== "https")) {
-    return "http";
-  }
-  return scheme;
-};
-
-const scheme = parseScheme(process.env.SCHEME);
+const scheme =
+  !process.env.SCHEME ||
+  (process.env.SCHEME !== "http" && process.env.SCHEME !== "https")
+    ? "http"
+    : process.env.SCHEME;
 const host = process.env.HOST ?? "127.0.0.1";
 
 interface App {
