@@ -4,4 +4,4 @@ export {
   errorRequired,
   errorTooLong,
   errorTooShort,
-} from "./messages";
+} from "./errors";
