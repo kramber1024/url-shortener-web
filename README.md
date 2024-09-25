@@ -1,6 +1,7 @@
 # URL Shortener Web Server
 
 <a href="https://github.com/kramber1024/url-shortener-web/actions/workflows/build.yml" target="_blank"><img src="https://github.com/kramber1024/url-shortener-web/actions/workflows/build.yml/badge.svg" alt="Build"></a>
+<a href="https://github.com/kramber1024/url-shortener-web/actions/workflows/tests.yml" target="_blank"><img src="https://github.com/kramber1024/url-shortener-web/actions/workflows/tests.yml/badge.svg" alt="Tests"></a>
 
 ## Technology stack and Features
 
