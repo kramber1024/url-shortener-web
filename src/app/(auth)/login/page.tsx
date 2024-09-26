@@ -11,7 +11,7 @@ import { Button } from "@/components/visual";
 import { useFetch } from "@/hooks";
 import { useState } from "react";
 
-import { validateForm } from "./validation";
+import { validateLoginForm } from "./validation";
 
 const Login = (): React.JSX.Element => {
   const [formData, setFormData] = useState<LoginUser>({
@@ -43,7 +43,7 @@ const Login = (): React.JSX.Element => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
-    const updatedErrors = validateForm(formData);
+    const updatedErrors = validateLoginForm(formData);
     setErrors(updatedErrors);
     if (updatedErrors.length > 0) {
       return;

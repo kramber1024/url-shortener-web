@@ -57,7 +57,7 @@ export const validatePassword = (
  * @param formData - The form data to validate.
  * @returns An array of errors.
  */
-export const validateForm = (formData: LoginUser): Error[] => {
+export const validateLoginForm = (formData: LoginUser): Error[] => {
   return [
     ...validateEmail(
       formData.email,
