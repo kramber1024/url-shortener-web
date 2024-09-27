@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
 
-export interface NavbarProps {
+export interface TopNavbarProps {
   children: ReactNode;
 }

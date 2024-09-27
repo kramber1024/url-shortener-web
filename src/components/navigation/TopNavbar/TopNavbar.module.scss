@@ -1,18 +1,19 @@
 @use "../../style/colors" as colors;
 
-nav.navbar {
+nav.topNavbar {
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   border-bottom: 1px solid colors.$border;
   background-color: colors.$background;
-  padding: 20px 0;
+  padding: 12px 0;
   width: 100%;
   height: 73px;
   min-height: 73px;
+  max-height: 73px;
 
-  & > div.navbarContent {
+  & > div.topNavbarContent {
     display: flex;
     align-items: center;
     margin: 0 20px;

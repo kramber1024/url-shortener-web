@@ -2,7 +2,7 @@ import type React from "react";
 import type { ReactNode } from "react";
 
 import { Main } from "@/components/layout";
-import { Navbar } from "@/components/navigation";
+import { TopNavbar } from "@/components/navigation";
 import { Brand } from "@/components/visual";
 import { constant } from "@/constant";
 
@@ -13,9 +13,9 @@ interface AuthLayoutProps {
 const AuthLayout = ({ children }: Readonly<AuthLayoutProps>): React.JSX.Element => {
   return (
     <>
-      <Navbar>
+      <TopNavbar>
         <Brand name={constant.app.NAME} />
-      </Navbar>
+      </TopNavbar>
       <Main alignItems="center" justifyContent="center">
         {children}
       </Main>
