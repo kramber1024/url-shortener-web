@@ -8,6 +8,7 @@ export const Box = ({
   alignItems,
   children,
   display,
+  flex,
   flexDirection,
   height,
   justifyContent,
@@ -28,6 +29,7 @@ export const Box = ({
       style={{
         alignItems,
         display,
+        flex,
         flexDirection,
         height,
         justifyContent,

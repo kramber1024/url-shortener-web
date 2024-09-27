@@ -4,6 +4,7 @@ export interface BoxProps {
   alignItems?: `${"baseline" | "center" | "flex-end" | "flex-start" | "normal" | "stretch"}`;
   children?: ReactNode;
   display?: "block" | "flex";
+  flex?: string;
   flexDirection?: `${"column" | "row"}${"-reverse" | ""}`;
   height?: string;
   justifyContent?: `${"center" | "flex-end" | "flex-start" | "space-around" | "space-between"}`;
