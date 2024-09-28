@@ -1,0 +1,22 @@
+@use "../../style/colors" as colors;
+
+nav.sideNavbar {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  border-right: 1px solid colors.$border;
+  background-color: colors.$background;
+  padding: 12px;
+  width: 69px;
+  min-width: 69px;
+  max-width: 241px;
+
+  & > div.sideNavbarContent {
+    display: flex;
+  }
+
+  @media screen and (min-width: 992px) {
+    display: flex;
+  }
+}
