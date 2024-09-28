@@ -1,3 +1,3 @@
-export declare const brand: string;
-export declare const brandLogo: string;
+export declare const brandLink: string;
+export declare const brandLogoContainer: string;
 export declare const brandName: string;

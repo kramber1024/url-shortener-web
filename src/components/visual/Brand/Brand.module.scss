@@ -1,12 +1,21 @@
 @use "../../style/colors" as colors;
 
-.brand {
+a.brandLink {
   display: flex;
   flex-direction: row;
   align-items: center;
   text-decoration: none;
 
-  & > div.brandLogo {
+  & > span.brandName {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    letter-spacing: 0.09rem;
+    user-select: none;
+  }
+
+  & > div.brandLogoContainer {
     width: 32px;
     height: 32px;
 
@@ -22,14 +31,5 @@
         stroke: colors.$background;
       }
     }
-  }
-
-  & > span.brandName {
-    margin-left: 10px;
-    font-weight: 600;
-    font-size: 1.6rem;
-    line-height: 2rem;
-    letter-spacing: 0.09rem;
-    user-select: none;
   }
 }
