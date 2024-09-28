@@ -7,7 +7,7 @@ import { Link } from "@/components/navigation";
 import { constant } from "@/constant";
 
 export const metadata: Metadata = {
-  description: `Sign in with ${constant.app.NAME} account"`,
+  description: `Sign in with ${constant.app.NAME} account`,
   title: `${constant.app.NAME} - Login`,
 };
 
