@@ -6,15 +6,6 @@ a.brandLink {
   align-items: center;
   text-decoration: none;
 
-  & > span.brandName {
-    margin-left: 10px;
-    font-weight: 600;
-    font-size: 1.6rem;
-    line-height: 2rem;
-    letter-spacing: 0.09rem;
-    user-select: none;
-  }
-
   & > div.brandLogoContainer {
     width: 32px;
     height: 32px;
@@ -31,5 +22,14 @@ a.brandLink {
         stroke: colors.$background;
       }
     }
+  }
+
+  & > span.brandName {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    letter-spacing: 0.09rem;
+    user-select: none;
   }
 }
